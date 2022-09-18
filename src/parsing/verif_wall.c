@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:51:48 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 01:58:14 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:29:40 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	verif_w(t_map *map, int y, int x)
 		if (!verif_up(map, y, x) || !verif_down(map, y, x)\
 		|| !verif_right(map, y, x) || !verif_left(map, y, x))
 		{
-			//printf("E%c", map->carte[y][x]);
+			name_error(3);
 			return (0);
 		}
 		//printf("E%c", map->carte[y][x]);

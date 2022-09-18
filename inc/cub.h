@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 01:21:11 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:26:20 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	name_file(int ac, char *av);
 // recup_map.c
 void	init_file(t_data *data, char *nom);
 void	clean_map(t_data *data);
+void	name_error(int cas);
 void	verif_wall(t_data *data);
 
 int	ft_isspc(char c);
