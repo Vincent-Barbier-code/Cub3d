@@ -11,7 +11,8 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	parsing/name_parse.c \
 	parsing/recup_file.c \
 	parsing/verif_wall.c \
-	parsing/clean_map.c)
+	parsing/clean_map.c \
+	parsing/verif_sides.c)
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC_FILES))
 

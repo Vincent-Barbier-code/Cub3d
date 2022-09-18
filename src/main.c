@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 01:36:50 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 17:27:47 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,15 @@ void	affiche_carte(t_map *map)
 
 void	parsing(int ac, char *name, t_data *data)
 {
-	// verif phrase du debut 
-	// verif color
+
 	name_file(ac, name);
 	init_file(data, name);
 	// marine
+	// verif phrase du debut 
+	// verif color
 	data->map->carte = data->file;
 	clean_map(data);
-	//affiche_carte(data->map);
+	affiche_carte(data->map);
 	verif_wall(data);
 }
 
