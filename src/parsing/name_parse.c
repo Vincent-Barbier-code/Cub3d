@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 02:20:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/17 23:38:19 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:29:38 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 static void	name_error(int cas)
 {
 	if (cas == 0)
-		ft_putstr_fd("Error\n the name of the file is not a .cub", 2);
+		ft_putstr_fd("Error\nName of the file is not valid", 2);
 	if (cas == 1)
-		ft_putstr_fd("Error\n the file is not a .cub", 2);
+		ft_putstr_fd("Error\nThe file is not a .cub", 2);
 	if (cas == 2)
-		ft_putstr_fd("Error\n numbers of arguments is invalid", 2);
+		ft_putstr_fd("Error\nNumbers of arguments is invalid", 2);
 	ft_garbage_collector(END, NULL);
 	exit(EXIT_FAILURE);
 }
