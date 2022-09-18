@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 19:45:45 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 20:54:49 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ void	parsing(int ac, char *name, t_data *data)
 	verif_char(data);
 }
 
+// void	affiche_2D(t_data *data)
+// {
+
+// }
+
 int	main(int ac, char **av)
 {
 	t_data	*data;
@@ -53,8 +58,7 @@ int	main(int ac, char **av)
 	data = ft_malloc(sizeof(t_data));
 	parsing(ac, av[1], data);
 	//affiche_file(data);
+	
+	// affiche_2D(data);
 	ft_garbage_collector(END, NULL);
-	//verif_open
-	//use_gnl
-	//verif_map
 }

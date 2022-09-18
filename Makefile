@@ -5,6 +5,7 @@ INCLUDES = inc/
 SRC_DIR = src/
 OBJ_DIR = obj/
 LIBFT =  -L ./libft -lft
+MLX =  -L minilibx-linux -lft ./minilibx-linux/libmlx.a -Imlx_linux -lXext -lX11 -lz -g3
 
 SRC_FILES = $(addprefix $(SRC_DIR), \
 	main.c \
@@ -24,12 +25,14 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 
 $(NAME): $(OBJ) $(DEPS)
 	$(MAKE) -C libft/
-	gcc $(CFLAGS) $(OBJ) $(LIBFT) $(GNL) -lreadline -o $(NAME)
+	$(MAKE) -C minilibx-linux/
+	gcc $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $(NAME) -lm
 
 all : $(NAME)
 
 clean :
 	$(MAKE) clean -C libft/
+	$(MAKE) clean -C minilibx-linux/
 	rm -rf $(OBJ_DIR)
 
 fclean : clean
