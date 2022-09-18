@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/17 23:10:11 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 01:21:11 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,21 @@
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 
+# define MOT 0
+# define CMD 1
+
+typedef struct s_map {
+	// ligne marhino
+	char		**carte;
+	int			y_max;
+	int			x_max;
+} 				t_map;
+
 typedef struct s_data {
 	// void		*mlx;
 	// void		*mlx_win;
-	char		**map;
-	int			nb_line_map;
+	char		**file;
+	t_map		*map;
 	// t_assets	assets;
 	// char		*addr;
 	// int			bits_per_pixel;
@@ -37,10 +47,11 @@ typedef struct s_data {
 // name_parse.c
 void	name_file(int ac, char *av);
 // recup_map.c
-void	init_map(t_data *data, char *nom);
-// void	clean_map(t_data *data);
+void	init_file(t_data *data, char *nom);
+void	clean_map(t_data *data);
+void	verif_wall(t_data *data);
 
-# define MOT 0
-# define CMD 1
+int	ft_isspc(char c);
+
 
 #endif

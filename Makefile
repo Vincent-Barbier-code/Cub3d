@@ -9,7 +9,8 @@ LIBFT =  -L ./libft -lft
 SRC_FILES = $(addprefix $(SRC_DIR), \
 	main.c \
 	parsing/name_parse.c \
-	parsing/recup_map.c \
+	parsing/recup_file.c \
+	parsing/verif_wall.c \
 	parsing/clean_map.c)
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC_FILES))

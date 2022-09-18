@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recup_map.c                                        :+:      :+:    :+:   */
+/*   recup_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/17 22:48:33 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 01:07:46 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ligne_verif(char *nom)
 	}
 }
 
-void	init_map(t_data *data, char *nom)
+void	init_file(t_data *data, char *nom)
 {
 	int		fd;
 	char	*str;
@@ -49,21 +49,22 @@ void	init_map(t_data *data, char *nom)
 	int		ligne;
 
 	ligne = ligne_verif(nom);
-	data->nb_line_map = ligne;
+	data->map = ft_malloc(sizeof(t_map));
+	data->map->y_max = ligne;
 	i = 0;
 	fd = open(nom, O_RDONLY);
 	fd_close_error(fd);
-	data->map = ft_malloc(sizeof(data->map) * (ligne + 1));
+	data->file = ft_malloc(sizeof(data->file) * (ligne + 1));
 	str = get_next_line(fd);
 	while (str)
 	{
-		data->map[i] = ft_strdup(str);
+		data->file[i] = ft_strdup(str);
 		free(str);
 		i++;
 		str = get_next_line(fd);
 	}
 	free(str);
-	data->map[i] = '\0';
+	data->file[i] = '\0';
 	close(fd);
 	return ;
 }
