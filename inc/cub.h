@@ -6,12 +6,12 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 17:26:22 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:46:02 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef CUB_H
+# define CUB_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -30,7 +30,7 @@ typedef struct s_map {
 	char		**carte;
 	int			y_max;
 	int			x_max;
-} 				t_map;
+}				t_map;
 
 typedef struct s_data {
 	// void		*mlx;
@@ -43,7 +43,6 @@ typedef struct s_data {
 	// int			line_length;
 }				t_data;
 
-
 // name_parse.c
 void	name_file(int ac, char *av);
 // recup_map.c
@@ -54,12 +53,12 @@ void	clean_map(t_data *data);
 //verif_wall.c
 void	verif_wall(t_data *data);
 //verif_sides
-int	verif_up(t_map *map, int y, int x, int (*f)(char));
-int	verif_down(t_map *map, int y, int x, int (*f)(char));
-int	verif_right(t_map *map, int y, int x, int (*f)(char));
-int	verif_left(t_map *map, int y, int x, int (*f)(char));
+int		verif_up(t_map *map, int y, int x, int (*f)(char));
+int		verif_down(t_map *map, int y, int x, int (*f)(char));
+int		verif_right(t_map *map, int y, int x, int (*f)(char));
+int		verif_left(t_map *map, int y, int x, int (*f)(char));
 
-int	ft_isspc(char c);
+int		ft_isspc(char c);
 
 
 #endif
