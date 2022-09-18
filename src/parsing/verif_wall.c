@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:51:48 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 17:47:18 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:24:20 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int is_near_empty(char c)
 	return (0);
 }
 
-int	verif_all_sides(t_map *map, int y, int x)
+void	verif_all_sides(t_map *map, int y, int x)
 {
 	if (ft_isspc(map->carte[y][x]))
 	{
@@ -40,7 +40,6 @@ int	verif_all_sides(t_map *map, int y, int x)
 	}
 	if (y == map->y_max - 1 && !is_near_empty(map->carte[y][x]))
 		name_error(3);
-	return (1);
 }
 
 void	verif_wall(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 02:20:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 15:29:56 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:56:30 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	name_error(int cas)
 	if (cas == 2)
 		ft_putstr_fd("Error\nNumbers of arguments is invalid", 2);
 	if (cas == 3)
-		ft_putstr_fd("Error\nMap : not closed by walls", 2);	
+		ft_putstr_fd("Error\nMap : not closed by walls", 2);
+	if (cas == 4)
+		ft_putstr_fd("Error\nMap : invalid character(s)", 2);
 	ft_garbage_collector(END, NULL);
 	exit(EXIT_FAILURE);
 }

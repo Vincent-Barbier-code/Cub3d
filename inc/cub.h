@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 18:46:02 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:45:25 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	name_error(int cas);
 //clean_map.c
 void	clean_map(t_data *data);
 //verif_wall.c
+int		ft_isspc(char c);
+int 	is_near_empty(char c);
 void	verif_wall(t_data *data);
 //verif_sides
 int		verif_up(t_map *map, int y, int x, int (*f)(char));
@@ -58,7 +60,11 @@ int		verif_down(t_map *map, int y, int x, int (*f)(char));
 int		verif_right(t_map *map, int y, int x, int (*f)(char));
 int		verif_left(t_map *map, int y, int x, int (*f)(char));
 
-int		ft_isspc(char c);
+
+
+
+//verif_char.c
+void	verif_char(t_data *data);
 
 
 #endif

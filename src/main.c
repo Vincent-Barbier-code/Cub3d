@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 17:27:47 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:45:45 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	parsing(int ac, char *name, t_data *data)
 	clean_map(data);
 	affiche_carte(data->map);
 	verif_wall(data);
+	verif_char(data);
 }
 
 int	main(int ac, char **av)
