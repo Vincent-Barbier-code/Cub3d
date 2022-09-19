@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 02:20:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 20:04:10 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 22:34:20 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	name_error(int cas)
 		ft_putstr_fd("Error\nMap : invalid character(s)", 2);
 	if (cas == 5)
 		ft_putstr_fd("Error\nMap : invalid number of player", 2);
+	if (cas == 6)
+		ft_putstr_fd("Error\nMlx : initializing new window", 2);
 	ft_garbage_collector(END, NULL);
 	exit(EXIT_FAILURE);
 }
