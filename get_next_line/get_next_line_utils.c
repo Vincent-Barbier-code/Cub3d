@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:29:05 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/17 22:26:28 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:52:16 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_substr_gnl(char const *s, unsigned int start, size_t len)
 	return (s2);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin_gnl(const char *s1, const char *s2)
 {
 	char	*sconc;
 	int		i;
@@ -83,7 +83,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (sconc);
 }
 
-char	*ft_strchr(const char *str, int i)
+char	*ft_strchr_gnl(const char *str, int i)
 {
 	char	*strcp;
 

@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:48:09 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 01:27:17 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:58:15 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	clean_map(t_data *data)
 	{
 		while (data->map->carte[y][x])
 		{	
-			if (data->map->carte[y][x] == '\n' && x < data->map->x_max)
+			if (data->map->carte[y][x] == '\n' && x < data->map->x_max - 1)
 				add_space(data, y, x); 
 			x++;
 		}

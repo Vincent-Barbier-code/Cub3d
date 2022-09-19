@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 18:57:46 by mvue              #+#    #+#             */
-/*   Updated: 2022/09/17 19:03:43 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:47:23 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # include <unistd.h>
 # include <string.h>
 # include <stddef.h>
+# include "../get_next_line/get_next_line.h"
 
-#define MALLOC 0
-#define FREE 1
-#define END 2
-#define INIT 3
+# define MALLOC 0
+# define FREE 1
+# define END 2
+# define INIT 3
 
 typedef struct s_list
 {
