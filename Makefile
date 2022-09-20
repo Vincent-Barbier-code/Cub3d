@@ -15,7 +15,8 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	parsing/clean_map.c \
 	parsing/verif_sides.c \
 	parsing/verif_char.c \
-	view2D/windows.c)
+	view2D/windows.c \
+	view2D/affiche_2D.c)
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC_FILES))
 

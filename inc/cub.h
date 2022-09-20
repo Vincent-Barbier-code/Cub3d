@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 23:31:33 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:05:59 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,14 @@
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
-
+# include "./struct.h"
+// SCREEN
+# define WIDTH 1400
+# define HEIGHT 700
+# define SIZE_PIXEL 10
+# define SIZE_PLAYER 10
+// KEYS
 # define ESC 65307
-# define CMD 1
-
-typedef struct s_map {
-	// ligne marhino
-	char		**carte;
-	int			y_max;
-	int			x_max;
-}				t_map;
-
-typedef struct s_data {
-	void		*mlx;
-	void		*mlx_win;
-	char		**file;
-	t_map		*map;
-	// t_assets	assets;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-}				t_data;
 
 // name_parse.c
 void	name_file(int ac, char *av);
@@ -66,11 +53,18 @@ int		verif_right(t_map *map, int y, int x, int (*f)(char));
 int		verif_left(t_map *map, int y, int x, int (*f)(char));
 
 //verif_char.c
+int		is_player(char c);
 void	verif_char(t_data *data);
 
 //windows.c
 void	new_window(t_data *img);
 int		win_close(t_data *img);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		key_hook(int key, t_data *data);
+
+//affiche2D.c
+void	affiche_2D(t_data *data);
+void	affiche_file(t_data *data);
+
 
 #endif

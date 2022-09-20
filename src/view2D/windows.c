@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 23:44:38 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/20 19:36:08 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,21 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	win_close(t_data *data)
 {
-	// destroy_datas(data);
-	// mlx_clear_window(data->mlx, data->mlx_win);
+	mlx_destroy_image(data->mlx, data->img);
+	mlx_clear_window(data->mlx, data->mlx_win);
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	mlx_destroy_display(data->mlx);
-	ft_free(data->mlx);
-	// 	free_map(data);
-	// exit(0);
+	free(data->mlx);
+	ft_garbage_collector(END, NULL);
+	exit(0);
 	return (0);
 }
 
 void	new_window(t_data *data)
 {
-	int	width;
-	int	height;
-
-	width = 1400;
-	height = 700;
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		name_error(6);
-	data->mlx_win = mlx_new_window(data->mlx, width, height, "so_long");
+	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "so_long");
+	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 }

@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 01:07:46 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/19 22:53:03 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	init_file(t_data *data, char *nom)
 		str = get_next_line(fd);
 	}
 	free(str);
-	data->file[i] = '\0';
+	data->file[i] = NULL;
 	close(fd);
 	return ;
 }
