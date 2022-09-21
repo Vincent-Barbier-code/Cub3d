@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/19 22:15:48 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/21 01:49:12 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,23 @@ void	parsing(int ac, char *name, t_data *data)
 	// verif color
 	data->map->carte = data->file;
 	clean_map(data);
-	affiche_carte(data->map);
+	// affiche_carte(data->map);
 	verif_wall(data);
 	verif_char(data);
 }
 
 int	main(int ac, char **av)
 {
-	t_data	*data;
+	t_data	data;
 
 	ft_garbage_collector(INIT, NULL);
-	data = ft_malloc(sizeof(t_data));
-	parsing(ac, av[1], data);
-	//affiche_file(data);
-	// new_window(data);
-	
-	// affiche_2D(data);
-	// win_close(data);
-	// mlx_key_hook(data->mlx_win, key_hook, data); // bouger camera
-	// mlx_hook(data->mlx_win, 17, 1L << 2, win_close, data);
-	// mlx_loop(data->mlx);
+	parsing(ac, av[1], &data);
+	// affiche_file(&data);
+	new_window(&data);
+	affiche_2D(&data);
+
+	mlx_key_hook(data.mlx_win, key_hook, &data); // bouger camera + ESCAPE
+	mlx_hook(data.mlx_win, 17, 1L << 2, win_close, &data);
+	mlx_loop(data.mlx);
 	ft_garbage_collector(END, NULL);
 }
