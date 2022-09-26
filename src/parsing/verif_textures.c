@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 23:17:14 by mvue              #+#    #+#             */
-/*   Updated: 2022/09/25 01:53:15 by mvue             ###   ########.fr       */
+/*   Updated: 2022/09/26 12:00:02 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,15 +148,17 @@ int	*get_colors(char *RGB)
 	color_nums = ft_malloc(sizeof(int) * 3);
 	i = 0;
 	j = 0;
-	digit_len = 0;
 	while (i < 3)
 	{
+		digit_len = 0;
 		skip_spaces(&j, RGB);
 		while (ft_isdigit(RGB[j]))
 		{
 			digit_len++;
 			j++;
 		}
+		if (digit_len > 3)
+			textures_errors(ERR_COLOR_NUM);
 		RGB[j] = '\0';
 		color_nums[i] = ft_atoi(&RGB[j - digit_len]);
 		j++;
@@ -169,9 +171,17 @@ int	*get_colors(char *RGB)
 void	get_colors_FC(char *RGB, t_data *data, char *element)
 {
 	int	*colors;
-	
+	int	i;
+
 	check_colors(RGB);
 	colors = get_colors(RGB);
+	i = 0;
+	while (i < 3)
+	{
+		if (!(colors[i] >= 0 && colors[i] <= 255))
+			textures_errors(ERR_COLOR_NUM);
+		i++;
+	}
 	if (!ft_strncmp(element, "F", 2))
 		data->textures.floor = colors;
 	if (!ft_strncmp(element, "C", 2))
@@ -194,7 +204,22 @@ int	is_map_line(char *line)
 	}
 	return (1);
 }
+/*
+void	trim_map(t_data *data, int start_line)
+{
+	char	**map;
+	int		line;
+	int		cnt_line;
 
+	line = start_line;
+	cnt_line = 0;
+	while (data->file[line])
+	{
+		cnt_line++;
+		line++;
+	}
+}
+*/
 void	get_textures(t_data *data)
 {
 	int		line;
@@ -222,5 +247,5 @@ void	get_textures(t_data *data)
 			line++;
 		}
 	}
-	printf("%d\n", data->textures.ceiling[0]);
+	//trim_map(data, line);
 }
