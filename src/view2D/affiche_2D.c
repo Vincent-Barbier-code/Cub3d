@@ -6,11 +6,16 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/23 03:09:47 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:58:44 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
+
+// quadrillage(t_data *data, int y, int x, int color)
+// {
+
+// }
 
 void	draw_map_2D(t_data *data, int y, int x, int color)
 {
@@ -47,9 +52,9 @@ void	map_2D(t_data *data)
 		while (data->map->carte[y][x])
 		{
 			if (data->map->carte[y][x] == '0' || is_player(data->map->carte[y][x]))
-				draw_map_2D(data, y, x, 0x000000FF);
+				draw_map_2D(data, y, x, VIDE);
 			if (data->map->carte[y][x] == '1')
-				draw_map_2D(data, y, x, 0x00FF0000); 
+				draw_map_2D(data, y, x, MUR); 
 			x++;
 		}
 		x = 0;

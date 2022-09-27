@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:51:48 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 19:24:20 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/27 20:07:02 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	verif_all_sides(t_map *map, int y, int x)
 			name_error(3);
 	}
 	if (y == map->y_max - 1 && !is_near_empty(map->carte[y][x]))
+		name_error(3);
+	if ((y == 0 || x == 0) && map->carte[y][x] == '0')\
 		name_error(3);
 }
 

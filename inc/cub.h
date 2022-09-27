@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/27 18:12:16 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:40:16 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define HEIGHT 700
 # define SIZE_PIXEL 30
 # define SIZE_PLAYER 10
+# define VIDE 0x000000FF
+# define MUR 0x00FF0000
 // KEYS
 # define LEFT 65361
 # define TOP 65362
