@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/21 00:55:08 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/27 18:12:16 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 // SCREEN
 # define WIDTH 1400
 # define HEIGHT 700
-# define SIZE_PIXEL 40
-# define SIZE_PLAYER 40
+# define SIZE_PIXEL 30
+# define SIZE_PLAYER 10
 // KEYS
 # define LEFT 65361
 # define TOP 65362
@@ -65,7 +65,8 @@ void	verif_char(t_data *data);
 void	new_window(t_data *img);
 int		win_close(t_data *img);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		key_hook(int key, t_data *data);
+int		key_press(int key, t_data *data);
+int		key_release(int key, t_data *data);
 
 //affiche2D.c
 void	affiche_2D(t_data *data);

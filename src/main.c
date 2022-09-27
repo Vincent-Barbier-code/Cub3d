@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/21 01:49:12 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:50:15 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	parsing(int ac, char *name, t_data *data)
 	data->map->carte = data->file;
 	clean_map(data);
 	// affiche_carte(data->map);
+	// printf("map = %c\n",data->map->carte[11][26]);
 	verif_wall(data);
 	verif_char(data);
 }
@@ -55,8 +56,10 @@ int	main(int ac, char **av)
 	new_window(&data);
 	affiche_2D(&data);
 
-	mlx_key_hook(data.mlx_win, key_hook, &data); // bouger camera + ESCAPE
-	mlx_hook(data.mlx_win, 17, 1L << 2, win_close, &data);
+	mlx_key_hook(data.mlx_win, key_press, &data); // bouger camera + ESCAPE
+	mlx_hook(data.mlx_win, 17, 1L << 0, win_close, &data);
+	// mlx_hook(data.mlx_win, 3, 1L << 1, key_release, &data);
+	
 	mlx_loop(data.mlx);
 	ft_garbage_collector(END, NULL);
 }

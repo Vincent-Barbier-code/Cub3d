@@ -6,15 +6,15 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/20 20:06:14 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/27 18:09:25 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
 typedef struct s_player {
-	int	x;
-	int	y;
+	double	x;
+	double	y;
 	int color;
 }				t_player;
 

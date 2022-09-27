@@ -6,19 +6,33 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/21 01:39:31 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:40:31 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-int	key_hook(int key, t_data *data)
+// int	key_release(int key, t_data *data)
+// {
+// 	if (key == TOP || key == BOT || key == RIGHT || key == LEFT)
+// 	{
+// 		printf("blabla,%d", data->player.x);
+// 		return (1);
+// 	}
+// 	else
+// 		return (0);
+// }
+
+int	key_press(int key, t_data *data)
 {
 	if (key == ESC)
 	{
 		win_close(data);
 		return (1);
 	}
+	// printf("KEY =%d\n", key);
+	if (key != TOP && key != BOT && key != RIGHT && key != LEFT)
+		return (0);
 	move_player(data, key);
 	map_2D(data);
 	draw_player(data);
