@@ -6,16 +6,36 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/27 19:58:44 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/04 14:10:08 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-// quadrillage(t_data *data, int y, int x, int color)
-// {
-
-// }
+void	quadrillage(t_data *data)
+{
+	int	x;
+	int	y;
+	
+	x = 0;
+	y = 0;
+	while (y < HEIGHT)
+	{
+		while (x < WIDTH)
+			my_mlx_pixel_put(data, x++, y, FOND);
+		y += SIZE_PIXEL;
+		x = 0;
+	}
+	x = 0;
+	y = 0;
+	while (x < WIDTH)
+	{
+		while (y < HEIGHT)
+			my_mlx_pixel_put(data, x, y++, FOND);
+		y = 0;
+		x += SIZE_PIXEL;
+	}
+}
 
 void	draw_map_2D(t_data *data, int y, int x, int color)
 {
@@ -62,12 +82,18 @@ void	map_2D(t_data *data)
 	}
 }
 
+void	refresh_2D(t_data *data)
+{
+	map_2D(data);
+	quadrillage(data);
+	draw_player(data);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
+}
+
 void	affiche_2D(t_data *data)
 {
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, \
 	&data->endian);
 	init_player(data);
-	map_2D(data);
-	draw_player(data);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
+	refresh_2D(data);
 }

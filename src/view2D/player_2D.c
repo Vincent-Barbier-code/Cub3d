@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 00:20:37 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/27 19:38:01 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/09/27 20:17:58 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ double	get_player_pos(t_map *map, char c)
 
 void	init_player(t_data *data)
 {
-	data->player.color = 0x0000FF00; // green
+	data->player.color = COLOR_PLAYER; // green
 	data->player.x = get_player_pos(data->map, 'x') * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2;
 	data->player.y = get_player_pos(data->map, 'y') * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2;
 }

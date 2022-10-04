@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/23 18:40:31 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/04 14:01:44 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int	key_press(int key, t_data *data)
 	if (key != TOP && key != BOT && key != RIGHT && key != LEFT)
 		return (0);
 	move_player(data, key);
-	map_2D(data);
-	draw_player(data);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
+	refresh_2D(data);
 	return (0);
 }
 
