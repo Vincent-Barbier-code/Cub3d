@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/04 14:10:08 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:22:55 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ void	refresh_2D(t_data *data)
 {
 	map_2D(data);
 	quadrillage(data);
-	draw_player(data);
+	if (!PLAYER_FORM)
+		draw_player_c(data);
+	// else
+	// 	draw_player_t(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 }
 

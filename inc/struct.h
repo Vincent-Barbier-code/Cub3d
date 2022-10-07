@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 14:24:13 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:09:10 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 typedef struct s_player {
 	double	x;
 	double	y;
-	int color;
+	double	radian;
+	int		color;
 }				t_player;
 
 typedef struct s_map {
@@ -26,12 +27,12 @@ typedef struct s_map {
 }				t_map;
 
 typedef struct s_textures {
-    char    *path_NO;
-    char    *path_SO;
-    char    *path_WE;
-    char    *path_EA;
-    int        *floor;
-    int        *ceiling;
+    char	*path_NO;
+    char	*path_SO;
+    char	*path_WE;
+    char	*path_EA;
+    int		*floor;
+    int		*ceiling;
 }            t_textures;
 
 typedef struct s_data {
@@ -48,5 +49,4 @@ typedef struct s_data {
 	t_map		*map;
 	t_player	player;
 	// t_assets	assets;
-
 }				t_data;
