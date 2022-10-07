@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/27 18:32:55 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:24:13 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ typedef struct s_map {
 	int			x_max;
 }				t_map;
 
+typedef struct s_textures {
+    char    *path_NO;
+    char    *path_SO;
+    char    *path_WE;
+    char    *path_EA;
+    int        *floor;
+    int        *ceiling;
+}            t_textures;
+
 typedef struct s_data {
 	void		*mlx;
 	void		*mlx_win;
@@ -35,6 +44,7 @@ typedef struct s_data {
 	int			endian;
 	//mlx finish
 	char		**file;
+	t_textures	textures;
 	t_map		*map;
 	t_player	player;
 	// t_assets	assets;

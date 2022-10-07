@@ -15,6 +15,7 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	parsing/clean_map.c \
 	parsing/verif_sides.c \
 	parsing/verif_char.c \
+	parsing/verif_textures.c \
 	view2D/windows.c \
 	view2D/affiche_2D.c \
 	view2D/player_2D.c)

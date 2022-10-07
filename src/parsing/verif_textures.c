@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verif_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 23:17:14 by mvue              #+#    #+#             */
-/*   Updated: 2022/09/26 12:00:02 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/07 14:34:44 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,22 +204,20 @@ int	is_map_line(char *line)
 	}
 	return (1);
 }
-/*
-void	trim_map(t_data *data, int start_line)
-{
-	char	**map;
-	int		line;
-	int		cnt_line;
 
-	line = start_line;
-	cnt_line = 0;
-	while (data->file[line])
-	{
-		cnt_line++;
-		line++;
-	}
+void    trim_map(t_data *data, int start_map)
+{
+    int        line;
+    
+    line = 0;
+    while (line < start_map)
+    {
+        ft_free(data->file[line]);
+        line++;
+    }
+    data->file = &data->file[start_map];
 }
-*/
+
 void	get_textures(t_data *data)
 {
 	int		line;
@@ -247,5 +245,5 @@ void	get_textures(t_data *data)
 			line++;
 		}
 	}
-	//trim_map(data, line);
+	trim_map(data, line);
 }

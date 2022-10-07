@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/23 15:50:15 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:59:23 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,32 @@ void	affiche_carte(t_map *map)
 		printf("%s", map->carte[i++]);
 }
 
+int	y_max_map(t_map *map)
+{
+	int i;
+
+	i = 0;
+	while (map->carte[i])
+		i++;
+	return (i);
+}
+
 void	parsing(int ac, char *name, t_data *data)
 {
 
 	name_file(ac, name);
 	init_file(data, name);
+	init_textures(data);
+	get_textures(data);
 	// marine
 	// verif phrase du debut 
 	// verif color
 	data->map->carte = data->file;
-	clean_map(data);
+	data->map->y_max = y_max_map(data->map);
 	// affiche_carte(data->map);
+	// affiche_file(data);
+	clean_map(data);
+	
 	// printf("map = %c\n",data->map->carte[11][26]);
 	verif_wall(data);
 	verif_char(data);

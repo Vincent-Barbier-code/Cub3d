@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/19 22:53:03 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:56:18 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	init_file(t_data *data, char *nom)
 
 	ligne = ligne_verif(nom);
 	data->map = ft_malloc(sizeof(t_map));
-	data->map->y_max = ligne;
 	i = 0;
 	fd = open(nom, O_RDONLY);
 	fd_close_error(fd);

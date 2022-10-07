@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 00:56:56 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:23:45 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 # include "../get_next_line/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
 # include "./struct.h"
+
+//PARSING
+# define ERR_TEXT_UNRECO 15
+# define ERR_WRONG_FILE 16
+# define ERR_COLOR 17
+# define ERR_COLOR_NUM 18
 // SCREEN
 # define WIDTH 1400
 # define HEIGHT 700
@@ -61,6 +67,11 @@ int		verif_down(t_map *map, int y, int x, int (*f)(char));
 int		verif_right(t_map *map, int y, int x, int (*f)(char));
 int		verif_left(t_map *map, int y, int x, int (*f)(char));
 
+//verif_textures
+void	init_textures(t_data *data);
+void	get_textures(t_data *data);
+
+
 //verif_char.c
 int		is_player(char c);
 void	verif_char(t_data *data);
@@ -76,7 +87,6 @@ int		key_release(int key, t_data *data);
 void	affiche_2D(t_data *data);
 void	refresh_2D(t_data *data);
 void	map_2D(t_data *data);
-
 
 //player2D.c
 void	draw_player(t_data *data);
