@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/04 14:01:44 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 01:10:17 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void	new_window(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		name_error(6);
-	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "so_long");
+	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Cub3d");
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 }
