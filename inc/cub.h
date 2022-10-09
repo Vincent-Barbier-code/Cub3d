@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 16:08:53 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:35:46 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@
 # define MUR 0x4E8098
 # define FOND 0x040404
 // KEYS
-# define LEFT 65361
-# define TOP 65362
-# define RIGHT 65363
-# define BOT 65364
+# define LEFT 97
+# define TOP 119
+# define RIGHT 100
+# define BOT 115
+# define CAM_LEFT 65361
+# define CAM_RIGHT 65363
 # define ESC 65307
 
 // name_parse.c
@@ -94,8 +96,10 @@ void	map_2D(t_data *data);
 
 //player2D.c
 void	draw_player_c(t_data *data);
+void	draw_player_t(t_data *data);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
+void	move_cam(t_data *data, int key);
 
 
 #endif

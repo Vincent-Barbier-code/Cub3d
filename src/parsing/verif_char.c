@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:21:03 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 16:24:46 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:29:10 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ void	verif_char(t_data *data)
 		{
 			radian = is_valid_char(data->map, y, x);
 			if (radian != -1)
-			{
 				data->player.radian = radian;
-				printf("%f",data->player.radian);
-			}
 			x++;
 		}
 		x = 0;

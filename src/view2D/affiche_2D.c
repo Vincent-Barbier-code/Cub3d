@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 15:22:55 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:01:35 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	map_2D(t_data *data)
 	{
 		while (data->map->carte[y][x])
 		{
-			if (data->map->carte[y][x] == '0' || is_player(data->map->carte[y][x]))
+			if (data->map->carte[y][x] == '0' || is_player(data->map->carte[y][x]) != -1)
 				draw_map_2D(data, y, x, VIDE);
 			if (data->map->carte[y][x] == '1')
 				draw_map_2D(data, y, x, MUR); 
@@ -88,8 +88,8 @@ void	refresh_2D(t_data *data)
 	quadrillage(data);
 	if (!PLAYER_FORM)
 		draw_player_c(data);
-	// else
-	// 	draw_player_t(data);
+	else
+		draw_player_t(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 }
 

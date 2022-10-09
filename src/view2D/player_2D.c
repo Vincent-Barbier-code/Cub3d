@@ -6,11 +6,20 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 00:20:37 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 15:24:21 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:37:57 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
+
+void	move_cam(t_data *data, int key)
+{
+	if (key == CAM_LEFT)
+		data->player.radian -= 11 * M_PI / 12;
+	if (key == CAM_RIGHT)
+		data->player.radian += 11 * M_PI / 12;
+	// printf("rad = %f\n", data->player.radian);
+}
 
 double	get_player_pos(t_map *map, char c)
 {
@@ -23,9 +32,9 @@ double	get_player_pos(t_map *map, char c)
 	{
 		while (map->carte[y][x])
 		{
-			if (is_player(map->carte[y][x]) && c == 'x')
+			if ((is_player(map->carte[y][x]) != -1) && c == 'x')
 				return (x);
-			if (is_player(map->carte[y][x]) && c == 'y')
+			if ((is_player(map->carte[y][x]) != -1) && c == 'y')
 				return (y);
 			x++;
 		}
