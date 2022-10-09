@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/09 23:35:46 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/10 01:40:25 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,16 @@ void	draw_player_t(t_data *data);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
 void	move_cam(t_data *data, int key);
+
+//trace_line.c
+void    trace_line(t_line l);
+
+//line_exceptions.c
+int    line_exceptions(t_line l, int dx, int dy);
+
+//trace_t_dial.c
+void    first_dial(t_line l, int dx, int dy);
+void    second_dial(t_line l, int dx, int dy);
 
 
 #endif
