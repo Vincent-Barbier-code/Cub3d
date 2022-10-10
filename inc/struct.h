@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 14:24:13 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:26:16 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ typedef struct s_player {
 	double	y;
 	int color;
 }				t_player;
+
+typedef struct s_point {
+	int	x;
+	int	y;
+}				t_point;
 
 typedef struct s_map {
 	// ligne marhino
@@ -50,3 +55,10 @@ typedef struct s_data {
 	// t_assets	assets;
 
 }				t_data;
+
+typedef struct s_trace_line {
+	t_point	a;
+	t_point	b;
+	t_data	*data;
+	int		color;
+}				t_line;
