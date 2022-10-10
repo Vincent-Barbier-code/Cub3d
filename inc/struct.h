@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/09 23:26:16 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/09 21:44:59 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 typedef struct s_player {
 	double	x;
 	double	y;
-	int color;
+	double	radian;
+	int		color;
 }				t_player;
 
 typedef struct s_point {
@@ -31,12 +32,12 @@ typedef struct s_map {
 }				t_map;
 
 typedef struct s_textures {
-    char    *path_NO;
-    char    *path_SO;
-    char    *path_WE;
-    char    *path_EA;
-    int        *floor;
-    int        *ceiling;
+    char	*path_NO;
+    char	*path_SO;
+    char	*path_WE;
+    char	*path_EA;
+    int		*floor;
+    int		*ceiling;
 }            t_textures;
 
 typedef struct s_data {
@@ -53,7 +54,6 @@ typedef struct s_data {
 	t_map		*map;
 	t_player	player;
 	// t_assets	assets;
-
 }				t_data;
 
 typedef struct s_trace_line {

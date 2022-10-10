@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 14:23:45 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:35:46 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <stddef.h>
 # include <fcntl.h>
+# include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
@@ -32,17 +33,22 @@
 // SCREEN
 # define WIDTH 1400
 # define HEIGHT 700
+// MINIMAP
 # define SIZE_PIXEL 30
 # define SIZE_PLAYER 10
+	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
+# define PLAYER_FORM 0
 # define COLOR_PLAYER 0xA30B37
 # define VIDE 0xBBB6DF
 # define MUR 0x4E8098
 # define FOND 0x040404
 // KEYS
-# define LEFT 65361
-# define TOP 65362
-# define RIGHT 65363
-# define BOT 65364
+# define LEFT 97
+# define TOP 119
+# define RIGHT 100
+# define BOT 115
+# define CAM_LEFT 65361
+# define CAM_RIGHT 65363
 # define ESC 65307
 
 // name_parse.c
@@ -73,7 +79,7 @@ void	get_textures(t_data *data);
 
 
 //verif_char.c
-int		is_player(char c);
+double	is_player(char c);
 void	verif_char(t_data *data);
 
 //windows.c
@@ -89,9 +95,11 @@ void	refresh_2D(t_data *data);
 void	map_2D(t_data *data);
 
 //player2D.c
-void	draw_player(t_data *data);
+void	draw_player_c(t_data *data);
+void	draw_player_t(t_data *data);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
+void	move_cam(t_data *data, int key);
 
 
 #endif

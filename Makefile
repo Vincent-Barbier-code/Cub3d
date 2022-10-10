@@ -18,7 +18,9 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	parsing/verif_textures.c \
 	view2D/windows.c \
 	view2D/affiche_2D.c \
-	view2D/player_2D.c)
+	view2D/player_2D.c \
+	view2D/player_carre.c \
+	view2D/player_triangle.c)
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC_FILES))
 

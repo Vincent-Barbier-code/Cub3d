@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 01:10:17 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:26:50 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ int	key_press(int key, t_data *data)
 		return (1);
 	}
 	// printf("KEY =%d\n", key);
-	if (key != TOP && key != BOT && key != RIGHT && key != LEFT)
+	if (key != TOP && key != BOT && key != RIGHT && key != LEFT && \
+		key != CAM_LEFT && key != CAM_RIGHT)
 		return (0);
 	move_player(data, key);
+	move_cam(data, key);
 	refresh_2D(data);
 	return (0);
 }

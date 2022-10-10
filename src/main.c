@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 14:59:23 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:14:37 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,12 @@ void	parsing(int ac, char *name, t_data *data)
 	init_file(data, name);
 	init_textures(data);
 	get_textures(data);
-	// marine
-	// verif phrase du debut 
 	// verif color
 	data->map->carte = data->file;
 	data->map->y_max = y_max_map(data->map);
 	// affiche_carte(data->map);
 	// affiche_file(data);
 	clean_map(data);
-	
-	// printf("map = %c\n",data->map->carte[11][26]);
 	verif_wall(data);
 	verif_char(data);
 }
@@ -67,7 +63,6 @@ int	main(int ac, char **av)
 
 	ft_garbage_collector(INIT, NULL);
 	parsing(ac, av[1], &data);
-	// affiche_file(&data);
 	new_window(&data);
 	affiche_2D(&data);
 
