@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 02:09:49 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/10 02:13:32 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/10 18:03:59 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	second_dial(t_line l, int dx, int dy)
 		{
 			my_mlx_pixel_put(l.data, l.a.x, l.a.y, l.color);
 			e += dx;
-			if (e > 0)
+			if (e <= 0)
 			{
 				l.a.x -= 1;
 				e += dy;
