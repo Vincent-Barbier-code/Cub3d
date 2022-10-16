@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:23:56 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 22:59:33 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/16 16:26:32 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,18 @@ int	can_move(t_data *data, int pos, char c)
 
 void	move_player(t_data *data, int key)
 {
-	if (!PLAYER_FORM)
-	{
-		if (key == TOP)
-			if (can_move(data, data->player.y - 1, 'y'))
-				data->player.y = data->player.y - 1;
-		if (key == BOT)
-			if (can_move(data, data->player.y + 1, 'y'))
-				data->player.y = data->player.y + 1;
-		if (key == LEFT)
-			if (can_move(data, data->player.x - 1, 'x'))
-				data->player.x = data->player.x - 1;
-		if (key == RIGHT)
-			if (can_move(data, data->player.x + 1, 'x'))
-				data->player.x = data->player.x  + 1;
-	}
-	// else
-	// 	move_player_t(data, key);
+	if (key == TOP)
+		if (can_move(data, data->player.y - 1, 'y'))
+			data->player.y = data->player.y - 1;
+	if (key == BOT)
+		if (can_move(data, data->player.y + 1, 'y'))
+			data->player.y = data->player.y + 1;
+	if (key == LEFT)
+		if (can_move(data, data->player.x - 1, 'x'))
+			data->player.x = data->player.x - 1;
+	if (key == RIGHT)
+		if (can_move(data, data->player.x + 1, 'x'))
+			data->player.x = data->player.x  + 1;
 }
 
 void	draw_player_c(t_data *data)
@@ -58,18 +53,18 @@ void	draw_player_c(t_data *data)
 	int size;
 
 	size = SIZE_PLAYER;
-	x = data->player.x;
-	y = data->player.y;
-	while (y < data->player.y + size\
-	&& data->player.y + size < HEIGHT)
+	x = POS_PX;
+	y = POS_PY;
+	while (y < POS_PY + size\
+	&& POS_PY + size < HEIGHT)
 	{
-		while (x < data->player.x + size\
-		&& data->player.x + size < WIDTH)
+		while (x < POS_PX + size\
+		&& POS_PX + size < WIDTH)
 		{
 			my_mlx_pixel_put(data, x, y, data->player.color);
 			x++;
 		}
 		y++;
-		x = data->player.x;
+		x = POS_PX;
 	}
 }

@@ -6,53 +6,53 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/09 23:01:35 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:27:04 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-void	quadrillage(t_data *data)
+void	quadrillage(t_data *data, int x, int y)
 {
-	int	x;
-	int	y;
-	
-	x = 0;
-	y = 0;
-	while (y < HEIGHT)
+	int	x1;
+	int	y1;
+
+	x1 = x;
+	y1 = y;
+	while (y1 < HEIGHT)
 	{
-		while (x < WIDTH)
-			my_mlx_pixel_put(data, x++, y, FOND);
-		y += SIZE_PIXEL;
-		x = 0;
+		while (x1 < WIDTH)
+			my_mlx_pixel_put(data, x1++, y1, FOND);
+		y1 += SIZE_PIXMAP;
+		x1 = x;
 	}
-	x = 0;
-	y = 0;
-	while (x < WIDTH)
+	x1 = x;
+	y1 = y;
+	while (x1 < WIDTH)
 	{
-		while (y < HEIGHT)
-			my_mlx_pixel_put(data, x, y++, FOND);
-		y = 0;
-		x += SIZE_PIXEL;
+		while (y1 < HEIGHT)
+			my_mlx_pixel_put(data, x1, y1++, FOND);
+		y1 = y;
+		x1 += SIZE_PIXMAP;
 	}
 }
 
-void	draw_map_2D(t_data *data, int y, int x, int color)
+void	draw_map_2D(t_data *data, int x, int y, int color)
 {
 	int size;
 	int cp_x;
 	int	cp_y;
 	
-	size = SIZE_PIXEL;
+	size = SIZE_PIXMAP;
 	x = x * size;
 	y = y *size;
 	cp_x = x;
 	cp_y = y;
-	while (y < cp_y + size && y + size < HEIGHT)
+	while (y < cp_y + size + POS_MAP_Y && y + size + POS_MAP_Y < HEIGHT)
 	{
-		while (x < cp_x + size && x + size < WIDTH)
+		while (x < cp_x + size + POS_MAP_X && x + size + POS_MAP_X < WIDTH)
 		{
-			my_mlx_pixel_put(data, x, y, color);
+			my_mlx_pixel_put(data, x + POS_MAP_X , y + POS_MAP_Y, color);
 			x++;
 		}
 		y++;
@@ -60,24 +60,38 @@ void	draw_map_2D(t_data *data, int y, int x, int color)
 	}
 }
 
+// double	pixel(int x)
+// {
+// 	return (x - floor(x));
+// }
+
 void	map_2D(t_data *data)
 {
 	int	x;
 	int	y;
+	int i = 0, j = 0;
 
-	x = 0;
-	y = 0;
+	x = (data->player.x / SIZE_PIXEL) - 8;
+	printf("x = %d\n", (int) data->player.x);
+	y = (data->player.y / SIZE_PIXEL) - 7;
+	printf("y = %d\n", (int) data->player.y);
+	if (x < 0)
+		x = 0;
+	if (y < 0)
+		x = 0;
 	while (data->map->carte[y])
 	{
 		while (data->map->carte[y][x])
 		{
 			if (data->map->carte[y][x] == '0' || is_player(data->map->carte[y][x]) != -1)
-				draw_map_2D(data, y, x, VIDE);
+				draw_map_2D(data, i++, j, VIDE);
 			if (data->map->carte[y][x] == '1')
-				draw_map_2D(data, y, x, MUR); 
+				draw_map_2D(data, i++, j, MUR);
 			x++;
 		}
-		x = 0;
+		i = 0;
+		x = (data->player.x / SIZE_PIXEL) - 8;
+		j++;
 		y++;
 	}
 }
@@ -85,7 +99,7 @@ void	map_2D(t_data *data)
 void	refresh_2D(t_data *data)
 {
 	map_2D(data);
-	quadrillage(data);
+	quadrillage(data, POS_MAP_X , POS_MAP_Y);
 	if (!PLAYER_FORM)
 		draw_player_c(data);
 	else

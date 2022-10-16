@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 00:20:37 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/09 23:37:57 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:42:32 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ void	move_cam(t_data *data, int key)
 		data->player.radian -= 11 * M_PI / 12;
 	if (key == CAM_RIGHT)
 		data->player.radian += 11 * M_PI / 12;
-	// printf("rad = %f\n", data->player.radian);
+	if (data->player.radian >= M_PI * 2)
+		data->player.radian = data->player.radian - (M_PI * 2);
+	if (data->player.radian <= -(M_PI * 2))
+		data->player.radian = data->player.radian + (M_PI * 2);
 }
 
-double	get_player_pos(t_map *map, char c)
+int	get_player_pos(t_map *map, char c)
 {
 	int	x;
 	int	y;

@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/10 01:40:25 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:51:19 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@
 # define HEIGHT 700
 // MINIMAP
 # define SIZE_PIXEL 30
-# define SIZE_PLAYER 10
+# define SIZE_PIXMAP 20
+# define SIZE_PLAYER 6
+# define POS_MAP_X (WIDTH - (WIDTH / 4))
+# define POS_MAP_Y (HEIGHT - (HEIGHT / 2.5))
+# define POS_PX (WIDTH - (WIDTH / 4) / 2)
+# define POS_PY (HEIGHT - (HEIGHT / 2.5) /2)
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
 # define COLOR_PLAYER 0xA30B37
@@ -97,6 +102,7 @@ void	map_2D(t_data *data);
 //player2D.c
 void	draw_player_c(t_data *data);
 void	draw_player_t(t_data *data);
+int	get_player_pos(t_map *map, char c);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
 void	move_cam(t_data *data, int key);

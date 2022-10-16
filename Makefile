@@ -5,7 +5,7 @@ INCLUDES = inc/
 SRC_DIR = src/
 OBJ_DIR = obj/
 LIBFT =  -L ./libft -lft
-MLX =  -L minilibx-linux -lft ./minilibx-linux/libmlx.a -Imlx_linux -lXext -lX11 -lz -g3
+MLX =  -L minilibx-linux -lft ./minilibx-linux/libmlx.a -Imlx_linux -lXext -lX11 -lz -lm -g3
 
 SRC_FILES = $(addprefix $(SRC_DIR), \
 	main.c \
