@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 00:20:37 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/13 23:04:35 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/20 16:34:28 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,11 @@ void    move_cam(t_data *data, int key)
 	    data->player.front -= 0.1;
 		if (data->player.front < 0)
         	data->player.front += M_PI * 2;
-		printf("front angle : %f\n", data->player.front);
 	}
 	if (key == CAM_RIGHT)
     {
 	    data->player.front += 0.1;
 		if (data->player.front > 2 * M_PI)
 			data->player.front -= M_PI * 2;
-		printf("front angle : %f\n", data->player.front);
 	}
 }
