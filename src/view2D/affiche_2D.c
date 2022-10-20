@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/20 04:50:03 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/20 04:55:16 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ void	draw_map_2D(t_data *data, int x, int y, int color)
 	{
 		while (x < cp_x + size)
 		{
-			if (can_draw(x + pos_x * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2 - data->player.x,
-			y + pos_y * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2 - data->player.y))
-				my_mlx_pixel_put(data, x + pos_x * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2 - data->player.x , \
-			 y + pos_y * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2 - data->player.y, color);
+			if (can_draw(x + pos_x * SIZE_PIXMAP + SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.x,
+			y + pos_y * SIZE_PIXMAP + SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.y))
+				my_mlx_pixel_put(data, x + pos_x * SIZE_PIXMAP + SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.x , \
+			 y + pos_y * SIZE_PIXMAP + SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.y, color);
 			x++;
 		}
 		y++;
@@ -129,7 +129,7 @@ void	refresh_2D(t_data *data)
 {
 	init_map(data);
 	map_2D(data);
-	quadrillage(data, -data->player.x + 4, -data->player.y);
+	quadrillage(data, - data->player.x + 4, - data->player.y);
 	if (!PLAYER_FORM)
 		draw_player_c(data);
 	else

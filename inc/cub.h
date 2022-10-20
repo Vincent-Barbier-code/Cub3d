@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/20 04:51:47 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/20 04:55:56 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define WIDTH 1400
 # define HEIGHT 700
 // MINIMAP
-# define SIZE_PIXEL 20
+// NOT USE FOR VINCENT # define SIZE_PIXEL 20
 # define SIZE_PIXMAP 20
 # define SIZE_PLAYER 6
 # define GAP_MAP 40

@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:23:56 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/16 16:26:32 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/20 04:55:16 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	can_move(t_data *data, int pos, char c)
 {
 	int size;
 
-	size = SIZE_PIXEL;
-	// printf("pos = %d data->player.x / size = %f data->player.y / size = %f\n", pos / size ,data->player.x / size, data->player.y / size);
-	// printf("pos = %d\n", (pos / size) + SIZE_PLAYER);
+	size = SIZE_PIXMAP;
 	if (c == 'y' && (data->map->carte[pos / size][(int) data->player.x / size] == '1' \
 	|| data->map->carte[(pos + SIZE_PLAYER) / size][(int) data->player.x / size] == '1'))
 		return (0);
