@@ -1,5 +1,5 @@
 NAME = cub3D
-CFLAGS =  -Wall -Wextra -Werror -g #-fsanitize=thread
+CFLAGS =  -Wall -Wextra # -Werror -g #-fsanitize=thread
 DEPS = $(INCLUDES)cub.h Makefile
 INCLUDES = inc/
 SRC_DIR = src/
