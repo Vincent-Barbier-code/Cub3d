@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/19 23:13:53 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/20 04:51:47 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@
 # define SIZE_PIXEL 20
 # define SIZE_PIXMAP 20
 # define SIZE_PLAYER 6
-# define POS_MAP_X (WIDTH - (WIDTH / 4))
-# define POS_MAP_Y (HEIGHT - (HEIGHT / 2.5))
-# define POS_PX (WIDTH - (WIDTH / 4) / 2)
-# define POS_PY (HEIGHT - (HEIGHT / 2.5) /2)
+# define GAP_MAP 40
+# define POS_MAP_X (WIDTH - (WIDTH / 4) - GAP_MAP)
+# define POS_MAP_Y (HEIGHT - (HEIGHT / 2.5) - GAP_MAP)
+# define POS_PX (WIDTH - ((WIDTH / 4) / 2) - GAP_MAP)
+# define POS_PY (HEIGHT - ((HEIGHT / 2.5) / 2) - GAP_MAP)
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
 # define COLOR_PLAYER 0xA30B37

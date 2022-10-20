@@ -6,11 +6,18 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/20 04:15:26 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/20 04:50:03 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
+
+int	can_draw(int x, int y)
+{
+	if (x >= POS_MAP_X && y >= POS_MAP_Y && x < WIDTH - GAP_MAP && y < HEIGHT - GAP_MAP)
+		return (1);
+	return (0);
+}
 
 void	quadrillage(t_data *data, int x, int y)
 {
@@ -22,7 +29,11 @@ void	quadrillage(t_data *data, int x, int y)
 	while (y1 < HEIGHT)
 	{
 		while (x1 < WIDTH)
-			my_mlx_pixel_put(data, x1++, y1, FOND);
+		{
+			if (can_draw(x1, y1))
+				my_mlx_pixel_put(data, x1, y1, FOND);
+			x1++;
+		}
 		y1 += SIZE_PIXMAP;
 		x1 = x;
 	}
@@ -31,17 +42,14 @@ void	quadrillage(t_data *data, int x, int y)
 	while (x1 < WIDTH)
 	{
 		while (y1 < HEIGHT)
-			my_mlx_pixel_put(data, x1, y1++, FOND);
+		{
+			if(can_draw(x1, y1))
+				my_mlx_pixel_put(data, x1, y1, FOND);
+			y1++;
+		}
 		y1 = y;
 		x1 += SIZE_PIXMAP;
 	}
-}
-
-int	can_draw(int x, int y)
-{
-	if (x >= POS_MAP_X && y >= POS_MAP_Y && x < WIDTH - 40 && y < HEIGHT - 40)
-		return (1);
-	return (0);
 }
 
 void	init_map(t_data *data)
@@ -121,7 +129,7 @@ void	refresh_2D(t_data *data)
 {
 	init_map(data);
 	map_2D(data);
-	// quadrillage(data, POS_MAP_X , POS_MAP_Y);
+	quadrillage(data, -data->player.x + 4, -data->player.y);
 	if (!PLAYER_FORM)
 		draw_player_c(data);
 	else
