@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/09 23:26:16 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/13 15:19:17 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 typedef struct s_player {
 	double	x;
 	double	y;
+	double	front;
 	int color;
 }				t_player;
 
@@ -24,7 +25,6 @@ typedef struct s_point {
 }				t_point;
 
 typedef struct s_map {
-	// ligne marhino
 	char		**carte;
 	int			y_max;
 	int			x_max;
@@ -61,4 +61,13 @@ typedef struct s_trace_line {
 	t_point	b;
 	t_data	*data;
 	int		color;
-}				t_line;
+}			t_line;
+
+typedef struct s_trigo {
+	double	dx;
+	double	dy;
+	double	ray_angle;
+	double	ray_len;
+	t_point	start_ray;
+	t_point	end_ray;
+} 			t_trigo;

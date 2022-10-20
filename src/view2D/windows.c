@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   windows.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 01:10:17 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/13 21:37:52 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ int	key_press(int key, t_data *data)
 		win_close(data);
 		return (1);
 	}
-	// printf("KEY =%d\n", key);
-	if (key != TOP && key != BOT && key != RIGHT && key != LEFT)
+	//printf("KEY =%d\n", key);
+	if (key != TOP && key != BOT && key != RIGHT && key != LEFT && \
+		key != CAM_LEFT && key != CAM_RIGHT)
 		return (0);
 	move_player(data, key);
+	move_cam(data, key);
 	refresh_2D(data);
 	return (0);
 }
@@ -51,7 +53,7 @@ int	win_close(t_data *data)
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_clear_window(data->mlx, data->mlx_win);
 	mlx_destroy_window(data->mlx, data->mlx_win);
-	mlx_destroy_display(data->mlx);
+	//mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	ft_garbage_collector(END, NULL);
 	exit(0);

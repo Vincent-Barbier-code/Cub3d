@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   affiche_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/04 14:10:08 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/13 23:57:02 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ void	refresh_2D(t_data *data)
 {
 	map_2D(data);
 	quadrillage(data);
-	draw_player(data);
+	trace_tilted(data);
+	//launch_rays(data);
+	vertical_check(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 }
 
