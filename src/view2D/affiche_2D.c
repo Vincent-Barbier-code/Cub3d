@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/20 04:12:10 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/20 04:15:26 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ void	draw_map_2D(t_data *data, int x, int y, int color)
 	y = y * size + POS_PY - pos_y * size - size / 2 + SIZE_PLAYER / 2;
 	cp_x = x;
 	cp_y = y;
-	while (y < cp_y + size && y + size < HEIGHT)
+	while (y < cp_y + size)
 	{
-		while (x < cp_x + size && x + size < WIDTH)
+		while (x < cp_x + size)
 		{
 			if (can_draw(x + pos_x * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2 - data->player.x,
 			y + pos_y * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2 - data->player.y))
