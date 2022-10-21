@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/13 23:56:42 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/21 17:30:21 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,5 @@ void	trace_triangle(t_point a, t_point b, t_point c, t_data *data);
 void	trace_tilted(t_data *data);
 
 //ray_caster.c
-void	launch_rays(t_data *data);
-void	vertical_check(t_data	*data);
+void	trace_rays(t_data *data);
 #endif
