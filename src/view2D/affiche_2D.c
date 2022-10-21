@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/13 23:57:02 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/21 17:30:28 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,7 @@ void	refresh_2D(t_data *data)
 	map_2D(data);
 	quadrillage(data);
 	trace_tilted(data);
-	//launch_rays(data);
-	vertical_check(data);
+	trace_rays(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 }
 
