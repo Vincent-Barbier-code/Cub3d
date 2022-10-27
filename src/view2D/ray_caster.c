@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:17:51 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/21 18:12:49 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/27 19:21:31 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ t_trigo	horizontal_check(t_data *data, double angle)
 	intan = -1 / tan(tri.ray_angle);
 	tri.start_ray.x = data->player.x;
 	tri.start_ray.y = data->player.y;
-	if (tri.ray_angle > M_PI) //regarde en bas
+	if (tri.ray_angle > M_PI ) //regarde en bas
 	{
 		tri.end_ray.y = (((int)data->player.y >> 6) << 6) - 0.0001;
 		tri.end_ray.x = (data->player.y - tri.end_ray.y) * intan + data->player.x;
@@ -136,7 +136,7 @@ double	distance(t_point a, t_point b)
 	return (sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y)));
 }
 
-void	trace_ray(t_data *data, double angle)
+double	trace_ray(t_data *data, double angle)
 {
 	t_trigo	hori;
 	t_trigo	vert;
@@ -148,32 +148,49 @@ void	trace_ray(t_data *data, double angle)
 	dist_h = distance(hori.start_ray, hori.end_ray);
 	dist_v = distance(vert.start_ray, vert.end_ray);
 	if (dist_h > 0 && dist_h < dist_v)
-		launch_line(data, hori.start_ray, hori.end_ray);
+	{
+		//launch_line(data, hori.start_ray, hori.end_ray);
+		return(dist_h);
+	}
 	if (dist_v > 0 && dist_v < dist_h)
-		launch_line(data, vert.start_ray, vert.end_ray);
+	{
+		//launch_line(data, vert.start_ray, vert.end_ray);
+		return(dist_v);
+	}
 }
 
 double	abs_angle(double angle)
 {
 	if (angle < 0)
 		angle += M_PI * 2;
+	if (angle > M_PI * 2)
+		angle -= M_PI * 2;
 	return (angle);
+}
+
+void	trace_pix_column(t_data *data, double len_ray, int n_pix_col)
+{
+	(void)	data;
+
+
+	printf("%d\n", num_col);
+	// printf("%f\n", len_ray);
 }
 
 void	trace_rays(t_data *data)
 {
 	double	angle_start;
 	double	angle_end;
-	int		num_pix_width;
 	double	step;
+	int		n_pix_col;
 
-	num_pix_width = 50;
+	n_pix_col = round(WIDTH / NUM_RAYS);
 	angle_start = data->player.front - M_PI / 6;
 	angle_end = data->player.front + M_PI / 6;
-	step = (angle_end - angle_start) / num_pix_width;
+	step = (angle_end - angle_start) / NUM_RAYS;
 	while (angle_start < angle_end)
 	{
-		trace_ray(data, abs_angle(angle_start));
+		trace_pix_column(data, trace_ray(data, abs_angle(angle_start)), n_pix_col);
 		angle_start += step;
 	}
 }
