@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/27 19:04:52 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/29 16:42:42 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
+//# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
 # include "./struct.h"
 
 //PARSING
@@ -30,24 +31,25 @@
 # define ERR_COLOR 17
 # define ERR_COLOR_NUM 18
 // SCREEN
-# define WIDTH 2000
-# define HEIGHT 1000
+# define WIDTH 1000
+# define HEIGHT 700
 # define NUM_RAYS 100
 # define SIZE_PIXEL 64
 # define SIZE_PLAYER 10
 # define COLOR_PLAYER 0xA30B37
+# define BLACK 0x000000
 # define VIDE 0xBBB6DF
 # define MUR 0x4E8098
 # define FOND 0x040404
 # define COLOR_RAY 0xff8c00
 // KEYS LINUX
-# define LEFT 97
-# define TOP 119
-# define RIGHT 100
-# define BOT 115
-# define CAM_LEFT 65361
-# define CAM_RIGHT 65363
-# define ESC 65307
+# define LEFT 0
+# define TOP 13
+# define RIGHT 2
+# define BOT 1
+# define ESC 53
+# define CAM_LEFT 123
+# define CAM_RIGHT 124
 // KEYS MAC
 //PARSING
 // name_parse.c

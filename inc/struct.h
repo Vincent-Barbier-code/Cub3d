@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/13 15:19:17 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/29 15:31:38 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ typedef struct s_point {
 	int	x;
 	int	y;
 }				t_point;
+
+typedef struct s_point_f {
+	double	x;
+	double	y;
+}				t_point_f;
 
 typedef struct s_map {
 	char		**carte;
@@ -64,10 +69,10 @@ typedef struct s_trace_line {
 }			t_line;
 
 typedef struct s_trigo {
-	double	dx;
-	double	dy;
-	double	ray_angle;
-	double	ray_len;
-	t_point	start_ray;
-	t_point	end_ray;
+	double		dx;
+	double		dy;
+	double		ray_angle;
+	double		ray_len;
+	t_point_f	start_ray;
+	t_point_f	end_ray;
 } 			t_trigo;
