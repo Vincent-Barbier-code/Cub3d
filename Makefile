@@ -1,11 +1,11 @@
 NAME = cub3D
-CFLAGS =  -Wall -Wextra -Werror -g #-fsanitize=thread
+CFLAGS =  -Wall -Wextra # -Werror -g #-fsanitize=thread
 DEPS = $(INCLUDES)cub.h Makefile
 INCLUDES = inc/
 SRC_DIR = src/
 OBJ_DIR = obj/
 LIBFT =  -L ./libft -lft
-MLX =  -L minilibx-linux -lft ./minilibx-linux/libmlx.a -Imlx_linux -lXext -lX11 -lz -g3
+MLX =  -L minilibx-linux -lft ./minilibx-linux/libmlx.a -Imlx_linux -lXext -lX11 -lz -lm -g3
 
 SRC_FILES = $(addprefix $(SRC_DIR), \
 	main.c \
@@ -18,9 +18,13 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	parsing/verif_textures.c \
 	view2D/windows.c \
 	view2D/affiche_2D.c \
+	view2D/draw.c \
 	view2D/player_2D.c \
 	view2D/player_carre.c \
-	view2D/player_triangle.c)
+	view2D/player_triangle.c \
+	view2D/trace_line.c \
+	view2D/line_exceptions.c \
+	view2D/trace_t_dial.c)
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC_FILES))
 

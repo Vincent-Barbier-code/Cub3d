@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/09 21:44:59 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/29 15:54:46 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef struct s_textures {
     int		*ceiling;
 }            t_textures;
 
+typedef struct s_draw {
+	int		size;
+	int		x;
+	int		y;
+	int		cp_x;
+	int		cp_y;
+	double	pos_x;
+	double	pos_y;
+}				t_draw;
 typedef struct s_data {
 	void		*mlx;
 	void		*mlx_win;
@@ -53,6 +62,7 @@ typedef struct s_data {
 	t_textures	textures;
 	t_map		*map;
 	t_player	player;
+	t_draw		draw;
 	// t_assets	assets;
 }				t_data;
 

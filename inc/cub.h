@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/09 23:35:46 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:14:55 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,14 @@
 # define WIDTH 1400
 # define HEIGHT 700
 // MINIMAP
-# define SIZE_PIXEL 30
-# define SIZE_PLAYER 10
+// NOT USE FOR VINCENT # define SIZE_PIXEL 20
+# define SIZE_PIXMAP 20
+# define SIZE_PLAYER 6
+# define GAP_MAP 40
+# define POS_MAP_X (WIDTH - (WIDTH / 4) - GAP_MAP)
+# define POS_MAP_Y (HEIGHT - (HEIGHT / 2.5) - GAP_MAP)
+# define POS_PX (WIDTH - ((WIDTH / 4) / 2) - GAP_MAP)
+# define POS_PY (HEIGHT - ((HEIGHT / 2.5) / 2) - GAP_MAP)
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
 # define COLOR_PLAYER 0xA30B37
@@ -90,16 +96,32 @@ int		key_press(int key, t_data *data);
 int		key_release(int key, t_data *data);
 
 //affiche2D.c
-void	affiche_2D(t_data *data);
-void	refresh_2D(t_data *data);
-void	map_2D(t_data *data);
+void	affiche_2d(t_data *data);
+void	refresh_2d(t_data *data);
+void	map_2d(t_data *data);
+
+//draw.c
+int		can_draw(int x, int y);
+void	init_map(t_data *data);
+void	draw_map_2d(t_data *data, int x, int y, int color);
 
 //player2D.c
 void	draw_player_c(t_data *data);
 void	draw_player_t(t_data *data);
+int		get_player_pos(t_map *map, char c);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
 void	move_cam(t_data *data, int key);
+
+//trace_line.c
+void    trace_line(t_line l);
+
+//line_exceptions.c
+int    line_exceptions(t_line l, int dx, int dy);
+
+//trace_t_dial.c
+void    first_dial(t_line l, int dx, int dy);
+void    second_dial(t_line l, int dx, int dy);
 
 
 #endif

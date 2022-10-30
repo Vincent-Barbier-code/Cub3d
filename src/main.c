@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 15:14:37 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/29 15:56:31 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int ac, char **av)
 	ft_garbage_collector(INIT, NULL);
 	parsing(ac, av[1], &data);
 	new_window(&data);
-	affiche_2D(&data);
+	affiche_2d(&data);
 
 	mlx_key_hook(data.mlx_win, key_press, &data); // bouger camera + ESCAPE
 	mlx_hook(data.mlx_win, 17, 1L << 0, win_close, &data);
