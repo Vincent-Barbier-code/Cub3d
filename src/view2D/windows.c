@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/14 14:49:29 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/29 15:53:45 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	key_press(int key, t_data *data)
 		return (0);
 	move_player(data, key);
 	move_cam(data, key);
-	refresh_2D(data);
+	refresh_2d(data);
 	return (0);
 }
 

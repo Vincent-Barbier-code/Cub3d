@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/20 04:55:56 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:14:55 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,19 @@ int		key_press(int key, t_data *data);
 int		key_release(int key, t_data *data);
 
 //affiche2D.c
-void	affiche_2D(t_data *data);
-void	refresh_2D(t_data *data);
-void	map_2D(t_data *data);
+void	affiche_2d(t_data *data);
+void	refresh_2d(t_data *data);
+void	map_2d(t_data *data);
+
+//draw.c
+int		can_draw(int x, int y);
+void	init_map(t_data *data);
+void	draw_map_2d(t_data *data, int x, int y, int color);
 
 //player2D.c
 void	draw_player_c(t_data *data);
 void	draw_player_t(t_data *data);
-int	get_player_pos(t_map *map, char c);
+int		get_player_pos(t_map *map, char c);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
 void	move_cam(t_data *data, int key);
