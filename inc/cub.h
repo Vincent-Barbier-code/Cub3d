@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
 /*   Updated: 2022/10/29 16:14:55 by vbarbier         ###   ########.fr       */
@@ -21,8 +21,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../libft/libft.h"
-# include "../get_next_line/get_next_line.h"
-# include "../minilibx-linux/mlx.h"
+//# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
 # include "./struct.h"
 
 //PARSING
@@ -31,7 +31,7 @@
 # define ERR_COLOR 17
 # define ERR_COLOR_NUM 18
 // SCREEN
-# define WIDTH 1400
+# define WIDTH 1000
 # define HEIGHT 700
 // MINIMAP
 // NOT USE FOR VINCENT # define SIZE_PIXEL 20
@@ -44,7 +44,10 @@
 # define POS_PY (HEIGHT - ((HEIGHT / 2.5) / 2) - GAP_MAP)
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
+# define NUM_RAYS 100
+# define SIZE_PIXEL 64
 # define COLOR_PLAYER 0xA30B37
+# define BLACK 0x000000
 # define VIDE 0xBBB6DF
 # define MUR 0x4E8098
 # define FOND 0x040404
@@ -88,6 +91,7 @@ void	get_textures(t_data *data);
 double	is_player(char c);
 void	verif_char(t_data *data);
 
+//2D
 //windows.c
 void	new_window(t_data *img);
 int		win_close(t_data *img);
@@ -111,17 +115,21 @@ void	draw_player_t(t_data *data);
 int		get_player_pos(t_map *map, char c);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
-void	move_cam(t_data *data, int key);
-
+void    move_cam(t_data *data, int key);
 //trace_line.c
-void    trace_line(t_line l);
+void	trace_line(t_line l);
 
 //line_exceptions.c
-int    line_exceptions(t_line l, int dx, int dy);
+int	line_exceptions(t_line l, int dx, int dy);
 
 //trace_t_dial.c
-void    first_dial(t_line l, int dx, int dy);
-void    second_dial(t_line l, int dx, int dy);
+void	first_dial(t_line l, int dx, int dy);
+void	second_dial(t_line l, int dx, int dy);
 
+//triangle.c
+void	trace_triangle(t_point a, t_point b, t_point c, t_data *data);
+void	trace_tilted(t_data *data);
 
+//ray_caster.c
+void	trace_rays(t_data *data);
 #endif

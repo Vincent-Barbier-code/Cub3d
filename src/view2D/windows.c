@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   windows.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
 /*   Updated: 2022/10/29 15:53:45 by vbarbier         ###   ########.fr       */
@@ -53,7 +53,7 @@ int	win_close(t_data *data)
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_clear_window(data->mlx, data->mlx_win);
 	mlx_destroy_window(data->mlx, data->mlx_win);
-	mlx_destroy_display(data->mlx);
+	//mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	ft_garbage_collector(END, NULL);
 	exit(0);

@@ -24,27 +24,30 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	view2D/player_triangle.c \
 	view2D/trace_line.c \
 	view2D/line_exceptions.c \
-	view2D/trace_t_dial.c)
+	view2D/trace_t_dial.c \
+	view2D/triangle.c \
+	view2D/ray_caster.c)
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC_FILES))
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@if [ ! -d "$(OBJ_DIR)" ]; then mkdir $(OBJ_DIR); fi
 	@if [ ! -d "$(dir $@)" ]; then mkdir $(dir $@); fi
-	gcc $(CFLAGS) -c $< -o $@
+	gcc $(CFLAGS) $(MLXINC) -c $< -o $@
+# gcc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(DEPS)
 	$(MAKE) -C libft/
-	$(MAKE) -C minilibx-linux/
-	gcc $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $(NAME) -lm
+	gcc $(CFLAGS) $(OBJ) $(LIBFT) $(MLXLINK) -o $(NAME) -lm
+#	$(MAKE) -C minilibx-linux/
+#	gcc $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $(NAME) -lm
 
 all : $(NAME)
 
 clean :
 	$(MAKE) clean -C libft/
-	$(MAKE) clean -C minilibx-linux/
 	rm -rf $(OBJ_DIR)
-
+#	$(MAKE) clean -C minilibx-linux/
 fclean : clean
 	$(MAKE) fclean -C libft/
 	rm -f $(NAME)
