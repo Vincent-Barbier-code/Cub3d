@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:23:56 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/20 04:55:16 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/30 22:16:28 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ int	can_move(t_data *data, int pos, char c)
 	return (1);
 }
 
-void	move_player(t_data *data, int key)
-{
-	if (key == TOP)
-		if (can_move(data, data->player.y - 1, 'y'))
-			data->player.y = data->player.y - 1;
-	if (key == BOT)
-		if (can_move(data, data->player.y + 1, 'y'))
-			data->player.y = data->player.y + 1;
-	if (key == LEFT)
-		if (can_move(data, data->player.x - 1, 'x'))
-			data->player.x = data->player.x - 1;
-	if (key == RIGHT)
-		if (can_move(data, data->player.x + 1, 'x'))
-			data->player.x = data->player.x  + 1;
-}
+// void	move_player(t_data *data, int key)
+// {
+// 	if (key == TOP)
+// 		if (can_move(data, data->player.y - 1, 'y'))
+// 			data->player.y = data->player.y - 1;
+// 	if (key == BOT)
+// 		if (can_move(data, data->player.y + 1, 'y'))
+// 			data->player.y = data->player.y + 1;
+// 	if (key == LEFT)
+// 		if (can_move(data, data->player.x - 1, 'x'))
+// 			data->player.x = data->player.x - 1;
+// 	if (key == RIGHT)
+// 		if (can_move(data, data->player.x + 1, 'x'))
+// 			data->player.x = data->player.x  + 1;
+// }
 
 void	draw_player_c(t_data *data)
 {

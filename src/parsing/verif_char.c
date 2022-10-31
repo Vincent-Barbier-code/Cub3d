@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:21:03 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 16:29:10 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/30 22:14:27 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,23 @@ void	verif_char(t_data *data)
 {
 	int x;
 	int	y;
-	double radian;
+	double front;
 
 	x = 0;
 	y = 0;
-	data->player.radian = -1;
+	data->player.front = -1;
 	while (data->map->carte[y])
 	{
 		while (data->map->carte[y][x])
 		{
-			radian = is_valid_char(data->map, y, x);
-			if (radian != -1)
-				data->player.radian = radian;
+			front = is_valid_char(data->map, y, x);
+			if (front != -1)
+				data->player.front = front;
 			x++;
 		}
 		x = 0;
 		y++;
 	}
-	if (data->player.radian == -1)
+	if (data->player.front == -1)
 		name_error(5);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/29 16:14:55 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/30 22:40:32 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../libft/libft.h"
-//# include "../minilibx-linux/mlx.h"
-# include <mlx.h>
+# include "../minilibx-linux/mlx.h"
+// # include <mlx.h>
 # include "./struct.h"
 
 //PARSING
@@ -35,8 +35,9 @@
 # define HEIGHT 700
 // MINIMAP
 // NOT USE FOR VINCENT # define SIZE_PIXEL 20
-# define SIZE_PIXMAP 20
+# define SIZE_PIXMAP 64
 # define SIZE_PLAYER 6
+# define COLOR_RAY 0xA30B37
 # define GAP_MAP 40
 # define POS_MAP_X (WIDTH - (WIDTH / 4) - GAP_MAP)
 # define POS_MAP_Y (HEIGHT - (HEIGHT / 2.5) - GAP_MAP)
@@ -103,16 +104,18 @@ int		key_release(int key, t_data *data);
 void	affiche_2d(t_data *data);
 void	refresh_2d(t_data *data);
 void	map_2d(t_data *data);
+int		can_move(t_data *data, int pos, char c);
 
 //draw.c
 int		can_draw(int x, int y);
 void	init_map(t_data *data);
 void	draw_map_2d(t_data *data, int x, int y, int color);
+int		formule(t_data *data, t_draw draw, char c);
 
 //player2D.c
 void	draw_player_c(t_data *data);
 void	draw_player_t(t_data *data);
-int		get_player_pos(t_map *map, char c);
+double	get_player_pos(t_map *map, char c);
 void	init_player(t_data *data);
 void	move_player(t_data *data, int key);
 void    move_cam(t_data *data, int key);

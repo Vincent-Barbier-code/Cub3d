@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   triangle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:20:20 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/13 13:11:16 by mvue             ###   ########.fr       */
+/*   Updated: 2022/10/30 22:53:45 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	trace_tilted(t_data *data)
 	t_point		right;
 
 	player = data->player;
-	top.x = SIZE_PLAYER * cos(player.front) + player.x;
-	top.y = SIZE_PLAYER * sin(player.front) + player.y;
-	left.x = SIZE_PLAYER * cos(player.front + 3 * M_PI / 4) + player.x;
-	left.y = SIZE_PLAYER * sin(player.front + 3 * M_PI / 4) + player.y;
-	right.x = SIZE_PLAYER * cos(player.front - 3 * M_PI / 4) + player.x;
-	right.y = SIZE_PLAYER * sin(player.front - 3 * M_PI / 4) + player.y;
+	top.x = SIZE_PLAYER * cos(player.front) + POS_PX;
+	top.y = SIZE_PLAYER * sin(player.front) + POS_PY;
+	left.x = SIZE_PLAYER * cos(player.front + 3 * M_PI / 4) + POS_PX;
+	left.y = SIZE_PLAYER * sin(player.front + 3 * M_PI / 4) + POS_PY;
+	right.x = SIZE_PLAYER * cos(player.front - 3 * M_PI / 4) + POS_PX;
+	right.y = SIZE_PLAYER * sin(player.front - 3 * M_PI / 4) + POS_PY;
 	trace_triangle(top, right, left, data);
 }

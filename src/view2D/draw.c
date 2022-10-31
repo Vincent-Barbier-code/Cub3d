@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:59:04 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/29 16:05:50 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/30 23:06:45 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	init_draw(t_data *data, int x, int y)
 	data->draw.cp_y = data->draw.y;
 }
 
-static int	formule(t_data *data, t_draw draw, char c)
+int	formule(t_data *data, t_draw draw, char c)
 {
 	if (c == 'x')
 	{
@@ -77,6 +77,7 @@ void	draw_map_2d(t_data *data, int x, int y, int color)
 	{
 		while (draw.x < draw.cp_x + draw.size)
 		{
+			data->draw = draw;
 			if (can_draw(formule(data, draw, 'x'), formule(data, draw, 'y')))
 				my_mlx_pixel_put(data, formule(data, draw, 'x'), \
 				formule(data, draw, 'y'), color);

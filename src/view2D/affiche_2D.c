@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   affiche_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/29 16:01:28 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/10/30 22:54:08 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	map_2d(t_data *data)
 	}
 }
 
-void	refresh_2d(t_data *data)
 void	black_out(t_data *data)
 {
 	int	x;
@@ -95,12 +94,14 @@ void	black_out(t_data *data)
 	}
 }
 
-void	refresh_2D(t_data *data)
+void	refresh_2d(t_data *data)
 {
     black_out(data);
 	trace_rays(data);
+	
 	init_map(data);
 	map_2d(data);
+	trace_tilted(data);
 	// quadrillage(data, - data->player.x + 4, -data->player.y);
 	if (!PLAYER_FORM)
 		draw_player_c(data);
