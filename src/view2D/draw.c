@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:59:04 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/30 23:06:45 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:52:26 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,14 @@ int	formule(t_data *data, t_draw draw, char c)
 	if (c == 'x')
 	{
 		return (draw.x + draw.pos_x * SIZE_PIXMAP \
-		+ SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.x);
+		+ SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.x / 2);
 	}
 	else
 	{
+		// printf("%ld\n", draw.y + draw.pos_y * SIZE_PIXMAP \
+		// + SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.y / 2);
 		return (draw.y + draw.pos_y * SIZE_PIXMAP \
-		+ SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.y);
+		+ SIZE_PIXMAP / 2 - SIZE_PLAYER / 2 - data->player.y / 2);
 	}
 }
 

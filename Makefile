@@ -21,7 +21,6 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	view2D/draw.c \
 	view2D/player_2D.c \
 	view2D/player_carre.c \
-	view2D/player_triangle.c \
 	view2D/trace_line.c \
 	view2D/line_exceptions.c \
 	view2D/trace_t_dial.c \
