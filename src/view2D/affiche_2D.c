@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/01 19:38:01 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 13:33:44 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	refresh_2d(t_data *data)
 
 void	affiche_2d(t_data *data)
 {
+	data->buffer = 0;
 	data->addr = mlx_get_data_addr(data->img, \
 	&data->bits_per_pixel, &data->line_length, &data->endian);
 	init_player(data);

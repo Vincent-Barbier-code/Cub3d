@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/01 20:33:26 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:33:24 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define ERR_COLOR 17
 # define ERR_COLOR_NUM 18
 // SCREEN
-# define WIDTH 1600
-# define HEIGHT 1000
+# define WIDTH 1000
+# define HEIGHT 600
 // MINIMAP
 // NOT USE FOR VINCENT # define SIZE_PIXEL 20
 # define SIZE_PIXMAP 32

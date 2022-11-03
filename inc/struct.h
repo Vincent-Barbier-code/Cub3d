@@ -6,10 +6,10 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/29 15:54:46 by vbarbier         ###   ########.fr       */
-/*   Updated: 2022/10/29 15:31:38 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/03 13:14:34 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "cub.h"
 
@@ -68,6 +68,7 @@ typedef struct s_data {
 	t_map		*map;
 	t_player	player;
 	t_draw		draw;
+	int			buffer;
 	// t_assets	assets;
 }				t_data;
 
