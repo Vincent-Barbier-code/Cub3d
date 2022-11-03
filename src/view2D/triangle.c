@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:20:20 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/30 22:53:45 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:40:42 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	trace_tilted(t_data *data)
 	t_point		right;
 
 	player = data->player;
-	top.x = SIZE_PLAYER * cos(player.front) + POS_PX;
-	top.y = SIZE_PLAYER * sin(player.front) + POS_PY;
-	left.x = SIZE_PLAYER * cos(player.front + 3 * M_PI / 4) + POS_PX;
-	left.y = SIZE_PLAYER * sin(player.front + 3 * M_PI / 4) + POS_PY;
-	right.x = SIZE_PLAYER * cos(player.front - 3 * M_PI / 4) + POS_PX;
-	right.y = SIZE_PLAYER * sin(player.front - 3 * M_PI / 4) + POS_PY;
+	top.x = SIZE_PLAYER * cos(player.front) + data->POS_PX;
+	top.y = SIZE_PLAYER * sin(player.front) + data->POS_PY;
+	left.x = SIZE_PLAYER * cos(player.front + 3 * M_PI / 4) + data->POS_PX;
+	left.y = SIZE_PLAYER * sin(player.front + 3 * M_PI / 4) + data->POS_PY;
+	right.x = SIZE_PLAYER * cos(player.front - 3 * M_PI / 4) + data->POS_PX;
+	right.y = SIZE_PLAYER * sin(player.front - 3 * M_PI / 4) + data->POS_PY;
 	trace_triangle(top, right, left, data);
 }

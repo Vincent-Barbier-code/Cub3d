@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 13:14:34 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:37:34 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ typedef struct s_data {
 	t_player	player;
 	t_draw		draw;
 	int			buffer;
+	int			POS_MAP_X; 
+	int			POS_MAP_Y;
+	int			POS_PX;
+	int			POS_PY;
 	// t_assets	assets;
 }				t_data;
 

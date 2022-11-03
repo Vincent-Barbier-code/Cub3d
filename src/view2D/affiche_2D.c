@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 21:51:53 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:44:51 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	quad_vertical(t_data *data, int x, int y)
 	{
 		while (y1 < HEIGHT)
 		{
-			if (can_draw(x1, y1))
+			if (can_draw(data, x1, y1))
 				my_mlx_pixel_put(data, x1, y1, FOND);
 			y1++;
 		}
@@ -43,7 +43,7 @@ void	quadrillage(t_data *data, int x, int y)
 	{
 		while (x1 < WIDTH)
 		{
-			if (can_draw(x1, y1))
+			if (can_draw(data, x1, y1))
 				my_mlx_pixel_put(data, x1, y1, FOND);
 			x1++;
 		}

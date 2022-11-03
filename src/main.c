@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 21:39:31 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:41:01 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,14 @@ int	y_max_map(t_map *map)
 	return (i);
 }
 
+void	init_size_map(t_data *data)
+{
+	data->POS_MAP_X = (WIDTH - (WIDTH / 4) - GAP_MAP);
+	data->POS_MAP_Y = (HEIGHT - (HEIGHT / 2.5) - GAP_MAP);
+	data->POS_PX = (WIDTH - ((WIDTH / 4) / 2) - GAP_MAP);
+	data->POS_PY = (HEIGHT - ((HEIGHT / 2.5) / 2) - GAP_MAP);
+}
+
 void	parsing(int ac, char *name, t_data *data)
 {
 
@@ -61,9 +69,9 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-
 	ft_garbage_collector(INIT, NULL);
 	parsing(ac, av[1], &data);
+	init_size_map(&data);
 	new_window(&data);
 	affiche_2d(&data);
 	//trace_tilted(&data);

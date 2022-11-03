@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 22:02:11 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:47:27 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int key_release(int key, t_data *data)
 
 int	do_key(int key, t_data *data)
 {
-
 	if (key == ESC)
 	{	
 		win_close(data);
@@ -44,17 +43,18 @@ int	do_key(int key, t_data *data)
 	move_player(data, key);
 	move_cam(data, key);
 	refresh_2d(data);
-	return (0);
+	return(0);
 }
 
 int key_press(int key, t_data *data)
 {
+	// printf("%d", key);
 	if (data->buffer == 0)
 		data->buffer = key;
 	// else if (data->buffer != key)
 	// 	do_key(data->buffer, data);
 	do_key(key, data);
-	return (0);
+	return(0);
 }
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
