@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/01 20:33:26 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 18:54:48 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
 // # include <mlx.h>
 # include "./struct.h"
 
@@ -30,6 +29,8 @@
 # define ERR_WRONG_FILE 16
 # define ERR_COLOR 17
 # define ERR_COLOR_NUM 18
+# define ERR_NUM_PATH 19
+# define ERR_NUM_COLOR 20
 // SCREEN
 # define WIDTH 1600
 # define HEIGHT 1000

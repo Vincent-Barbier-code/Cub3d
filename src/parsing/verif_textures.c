@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verif_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 23:17:14 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/07 14:34:44 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 13:38:28 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	textures_errors(int err_num)
 	}
 	if (err_num == ERR_COLOR)
 	{
-		ft_putstr_fd("Error\nWrong color format", 2);
+		ft_putstr_fd("Error\nWrong color format\n", 2);
 		ft_putstr_fd("Give the color in RGB separated by comas\n", 2);
 		ft_putstr_fd("Ex : 100,10,50\n", 2);
 	}
@@ -46,6 +46,10 @@ void	textures_errors(int err_num)
 		ft_putstr_fd("Error\nWrong color number, ", 2);
 		ft_putstr_fd("colors must be between 0 and 255\n", 2);
 	}
+	if (err_num == ERR_NUM_PATH)
+		ft_putstr_fd("Error\nMultiple paths given\n", 2);
+	if (err_num == ERR_NUM_COLOR)
+		ft_putstr_fd("Error\nMultiple colors given\n", 2);
 	exit (1);
 }
 
@@ -101,13 +105,29 @@ void	get_texture_path(char *path, t_data *data, char *element)
 		textures_errors(ERR_WRONG_FILE);
 	close(fd);
 	if (!ft_strncmp(element, "NO", 2))
+	{
+		if (data->textures.path_NO)
+			textures_errors(ERR_NUM_PATH);
 		data->textures.path_NO = path;
+	}
 	if (!ft_strncmp(element, "SO", 2))
+	{
+		if (data->textures.path_SO)
+			textures_errors(ERR_NUM_PATH);
 		data->textures.path_SO = path;
+	}
 	if (!ft_strncmp(element, "WE", 2))
+	{
+		if (data->textures.path_WE)
+			textures_errors(ERR_NUM_PATH);
 		data->textures.path_WE = path;
+	}
 	if (!ft_strncmp(element, "EA", 2))
+	{
+		if (data->textures.path_EA)
+			textures_errors(ERR_NUM_PATH);
 		data->textures.path_EA = path;
+	}
 }
 
 void	check_colors(char *RGB)
@@ -183,9 +203,17 @@ void	get_colors_FC(char *RGB, t_data *data, char *element)
 		i++;
 	}
 	if (!ft_strncmp(element, "F", 2))
+	{
+		if (data->textures.floor)
+			textures_errors(ERR_NUM_COLOR);
 		data->textures.floor = colors;
+	}
 	if (!ft_strncmp(element, "C", 2))
+	{
+		if (data->textures.ceiling)
+			textures_errors(ERR_NUM_COLOR);
 		data->textures.ceiling = colors;
+	}
 }
 
 int	is_map_line(char *line)
