@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:17:51 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/01 18:32:21 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 21:29:45 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ void	trace_rays(t_data *data)
 	while (angle_start < angle_end)
 	{
 		trace_pix_column(data, trace_ray(data, abs_angle(angle_start)), n_pix_col, round(ind_col * n_pix_col));
-		trace_ray(data, abs_angle(angle_start));
+		// trace_ray(data, abs_angle(angle_start));
 		angle_start += step;
 		ind_col++;
 	}

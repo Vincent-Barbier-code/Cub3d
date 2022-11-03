@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 14:22:16 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 21:39:31 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int ac, char **av)
 	//trace_tilted(&data);
 	mlx_hook(data.mlx_win, 2, 1L << 0, key_press, &data);
 	mlx_hook(data.mlx_win, 17, 1L << 0, win_close, &data);
-	mlx_hook(data.mlx_win, 3, 1L << 1, key_release, &data);
+	// mlx_hook(data.mlx_win, 3, 1L << 1, key_release, &data);
 	mlx_loop(data.mlx);
 	ft_garbage_collector(END, NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 15:30:39 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:02:11 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,29 @@ int key_release(int key, t_data *data)
 
 int	do_key(int key, t_data *data)
 {
-	int	i;
 
-	i = 0;
-	while (i <= 1000)
-	{
-		if (i == 999)
-		{
-			if (key == ESC)
-			{	
-				win_close(data);
-				return (1);
-			}
-			if (key != TOP && key != BOT && key != RIGHT && key != LEFT && \
-				key != CAM_LEFT && key != CAM_RIGHT)
-				return (0);
-			move_player(data, key);
-			move_cam(data, key);
-			refresh_2d(data);
-		}
-		i++;
+	if (key == ESC)
+	{	
+		win_close(data);
+		return (1);
 	}
+	if (key != TOP && key != BOT && key != RIGHT && key != LEFT && \
+		key != CAM_LEFT && key != CAM_RIGHT)
+		return (0);
+	move_player(data, key);
+	move_cam(data, key);
+	refresh_2d(data);
 	return (0);
 }
 
 int key_press(int key, t_data *data)
 {
-	printf("%d", key);
 	if (data->buffer == 0)
 		data->buffer = key;
-	else if (data->buffer != key)
-		do_key(data->buffer, data);
+	// else if (data->buffer != key)
+	// 	do_key(data->buffer, data);
 	do_key(key, data);
-	return(0);
+	return (0);
 }
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
