@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_caster.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:17:51 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/01 18:32:21 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:31:01 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,49 +178,27 @@ double	abs_angle(double angle)
 	return (angle);
 }
 
-void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col)
-{
-	double	col_h;
-	double	col_offset;
-	int		pix_x;
-	int		pix_y;
-
-	col_h = SIZE_PIXEL * HEIGHT / len_ray;
-	if (col_h > HEIGHT)
-		col_h = HEIGHT;
-	col_offset = HEIGHT / 2 - col_h / 2;
-	pix_x = ind_col;
-	while (pix_x < n_pix_col + ind_col)
-	{
-		pix_y = col_offset;
-		while (pix_y < col_h + col_offset)
-		{
-			my_mlx_pixel_put(data, pix_x, pix_y, COLOR_RAY);
-			pix_y++;
-		}
-		pix_x++;
-	}
-}
-
 void	trace_rays(t_data *data)
 {
 	double	angle_start;
 	double	angle_end;
 	double	step;
+	double	angle_fish;
+	double	len_ray;
 	int		n_pix_col;
 	int		ind_col;
-	
+
 	n_pix_col = round(WIDTH / NUM_RAYS);
 	angle_start = data->player.front - M_PI / 6;
 	angle_end = data->player.front + M_PI / 6;
 	step = (angle_end - angle_start) / NUM_RAYS;
 	ind_col = 0;
-	//angle_start = data->player.front;
-	//trace_ray(data, abs_angle(angle_start));
 	while (angle_start < angle_end)
 	{
-		trace_pix_column(data, trace_ray(data, abs_angle(angle_start)), n_pix_col, round(ind_col * n_pix_col));
-		trace_ray(data, abs_angle(angle_start));
+		len_ray = trace_ray(data, abs_angle(angle_start));
+		angle_fish = abs_angle(angle_start - data->player.front);
+		len_ray *= cos(angle_fish);
+		trace_pix_column(data, len_ray, n_pix_col, round(ind_col * n_pix_col));
 		angle_start += step;
 		ind_col++;
 	}

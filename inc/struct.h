@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/29 15:54:46 by vbarbier         ###   ########.fr       */
-/*   Updated: 2022/10/29 15:31:38 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/03 20:25:00 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "cub.h"
 
@@ -54,6 +54,7 @@ typedef struct s_draw {
 	double	pos_x;
 	double	pos_y;
 }				t_draw;
+
 typedef struct s_data {
 	void		*mlx;
 	void		*mlx_win;

@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 18:54:48 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/03 20:08:04 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 // # include <mlx.h>
 # include "./struct.h"
 
@@ -32,8 +33,8 @@
 # define ERR_NUM_PATH 19
 # define ERR_NUM_COLOR 20
 // SCREEN
-# define WIDTH 1600
-# define HEIGHT 1000
+# define WIDTH 800
+# define HEIGHT 500
 // MINIMAP
 // NOT USE FOR VINCENT # define SIZE_PIXEL 20
 # define SIZE_PIXMAP 32
@@ -136,4 +137,8 @@ void	trace_tilted(t_data *data);
 
 //ray_caster.c
 void	trace_rays(t_data *data);
+
+//3D
+void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col);
+
 #endif
