@@ -25,7 +25,10 @@ SRC_FILES = $(addprefix $(SRC_DIR), \
 	view2D/line_exceptions.c \
 	view2D/trace_t_dial.c \
 	view2D/triangle.c \
-	view2D/ray_caster.c)
+	view2D/ray_caster.c \
+	view3D/draw_walls.c \
+	view3D/load_textures.c \
+	view3D/draw_textures.c)
 
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC_FILES))
 

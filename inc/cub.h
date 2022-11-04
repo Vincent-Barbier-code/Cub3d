@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 20:08:04 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/04 13:01:25 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
-// # include <mlx.h>
+//# include <mlx.h>
 # include "./struct.h"
 
 //PARSING
@@ -139,6 +139,9 @@ void	trace_tilted(t_data *data);
 void	trace_rays(t_data *data);
 
 //3D
+//draw_walls.c
 void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col);
-
+//load_textures.c
+void	load_imgs(t_data *data);
+void	destroy_imgs(t_data *data);
 #endif

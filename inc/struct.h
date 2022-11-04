@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 20:25:00 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/04 12:43:30 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ typedef struct s_textures {
     char	*path_SO;
     char	*path_WE;
     char	*path_EA;
+	void	*asset_NO;
+	void	*asset_SO;
+	void	*asset_WE;
+	void	*asset_EA;
     int		*floor;
     int		*ceiling;
 }            t_textures;
@@ -69,7 +73,6 @@ typedef struct s_data {
 	t_map		*map;
 	t_player	player;
 	t_draw		draw;
-	// t_assets	assets;
 }				t_data;
 
 typedef struct s_trace_line {
