@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 23:17:14 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/03 13:38:28 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/04 13:11:13 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	textures_errors(int err_num)
 		ft_putstr_fd("Error\nMultiple paths given\n", 2);
 	if (err_num == ERR_NUM_COLOR)
 		ft_putstr_fd("Error\nMultiple colors given\n", 2);
+	ft_garbage_collector(END, NULL);
 	exit (1);
 }
 
@@ -108,25 +109,25 @@ void	get_texture_path(char *path, t_data *data, char *element)
 	{
 		if (data->textures.path_NO)
 			textures_errors(ERR_NUM_PATH);
-		data->textures.path_NO = path;
+		data->textures.path_NO = ft_strdup(path);
 	}
 	if (!ft_strncmp(element, "SO", 2))
 	{
 		if (data->textures.path_SO)
 			textures_errors(ERR_NUM_PATH);
-		data->textures.path_SO = path;
+		data->textures.path_SO = ft_strdup(path);
 	}
 	if (!ft_strncmp(element, "WE", 2))
 	{
 		if (data->textures.path_WE)
 			textures_errors(ERR_NUM_PATH);
-		data->textures.path_WE = path;
+		data->textures.path_WE = ft_strdup(path);
 	}
 	if (!ft_strncmp(element, "EA", 2))
 	{
 		if (data->textures.path_EA)
 			textures_errors(ERR_NUM_PATH);
-		data->textures.path_EA = path;
+		data->textures.path_EA = ft_strdup(path);
 	}
 }
 
