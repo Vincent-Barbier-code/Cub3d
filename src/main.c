@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/04 12:45:26 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/04 13:57:36 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	main(int ac, char **av)
 
 	ft_garbage_collector(INIT, NULL);
 	parsing(ac, av[1], &data);
-	load_imgs(&data);
 	new_window(&data);
+	load_imgs(&data);
 	affiche_2d(&data);
 	//trace_tilted(&data);
 	mlx_key_hook(data.mlx_win, key_press, &data); // bouger camera + ESCAPE

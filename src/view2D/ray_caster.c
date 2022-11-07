@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:17:51 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/03 22:31:01 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/04 22:36:47 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,12 +159,12 @@ double	trace_ray(t_data *data, double angle)
 		dist_h = HEIGHT;
 	if (dist_h < dist_v)
 	{
-		//launch_line(data, hori.start_ray, hori.end_ray);
+		data->textures.x_wall_hit = hori.end_ray.x;
 		return(dist_h);
 	}
 	else
 	{
-		//launch_line(data, vert.start_ray, vert.end_ray);
+		data->textures.x_wall_hit = vert.end_ray.x;
 		return(dist_v);
 	}
 }

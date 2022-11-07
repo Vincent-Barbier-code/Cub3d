@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/04 13:01:25 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/07 17:01:25 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
-//# include <mlx.h>
+//# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
 # include "./struct.h"
 
 //PARSING
@@ -55,14 +55,21 @@
 # define MUR 0x4E8098
 # define FOND 0x040404
 // KEYS
-# define LEFT 97
-# define TOP 119
-# define RIGHT 100
-# define BOT 115
-# define CAM_LEFT 65361
-# define CAM_RIGHT 65363
-# define ESC 65307
-
+// # define LEFT 97
+// # define TOP 119
+// # define RIGHT 100
+// # define BOT 115
+// # define CAM_LEFT 65361
+// # define CAM_RIGHT 65363
+// # define ESC 65307
+//KEYS MAC
+# define LEFT 0
+# define TOP 13
+# define RIGHT 2
+# define BOT 1
+# define ESC 53
+# define CAM_LEFT 123
+# define CAM_RIGHT 124
 // name_parse.c
 void	name_file(int ac, char *av);
 
@@ -144,4 +151,6 @@ void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col);
 //load_textures.c
 void	load_imgs(t_data *data);
 void	destroy_imgs(t_data *data);
+//draw_textures.c
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/04 12:43:30 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/04 22:30:38 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,26 @@ typedef struct s_map {
 	int			x_max;
 }				t_map;
 
+typedef struct s_img {
+	void	*pointer;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	char	*addr;
+}				t_img;
+
 typedef struct s_textures {
     char	*path_NO;
     char	*path_SO;
     char	*path_WE;
     char	*path_EA;
-	void	*asset_NO;
-	void	*asset_SO;
-	void	*asset_WE;
-	void	*asset_EA;
+	t_img	asset_NO;
+	t_img	asset_SO;
+	t_img	asset_WE;
+	t_img	asset_EA;
     int		*floor;
     int		*ceiling;
+	double	x_wall_hit;
 }            t_textures;
 
 typedef struct s_draw {

@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:07:27 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/03 22:28:44 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/07 18:15:41 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,19 @@ void	draw_floor(t_data *data, int pix_x, double start_floor)
 
 void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col)
 {
-	double	col_h;
-	double	col_offset;
-	int		pix_x;
-	int		pix_y;
+	double		col_h;
+	double		col_offset;
+	int			pix_x;
+	int			pix_y;
+	double		tex_x;
+	int			tex_y;
+	double		tex_pos;
+	t_img		asset;
+	float		tex_y_step;
 
 	if (ind_col == WIDTH)
 		return ;
+	asset = data->textures.asset_WE;
 	col_h = SIZE_PIXEL * HEIGHT / len_ray;
 	if (col_h > HEIGHT)
 		col_h = HEIGHT;
@@ -64,9 +70,17 @@ void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col)
 		pix_y = col_offset;
 		if (pix_y)
 			draw_ceiling(data, pix_x, pix_y);
+		tex_pos = (pix_y - HEIGHT / 2 + col_h / 2) * tex_y_step;
 		while (pix_y < col_h + col_offset)
 		{
-			my_mlx_pixel_put(data, pix_x, pix_y, COLOR_RAY);
+			tex_y = (int) tex_pos & 63;
+			tex_pos += tex_y_step;
+			data->addr[pix_y * data->line_length + pix_x * data->bits_per_pixel / 8] \
+				= asset.addr[(int)tex_y * asset.line_length + (int)tex_x * (asset.bits_per_pixel / 8)];
+			data->addr[pix_y * data->line_length + pix_x * data->bits_per_pixel / 8 + 1] \
+				= asset.addr[(int)tex_y * asset.line_length + (int)tex_x * (asset.bits_per_pixel / 8 + 1)];
+			data->addr[pix_y * data->line_length + pix_x * data->bits_per_pixel / 8 + 2] \
+				= asset.addr[(int)tex_y * asset.line_length + (int)tex_x * (asset.bits_per_pixel / 8 + 2)];
 			pix_y++;
 		}
 		if (pix_y != HEIGHT)
