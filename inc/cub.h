@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/07 17:01:25 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/07 23:09:17 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../libft/libft.h"
-//# include "../minilibx-linux/mlx.h"
-# include <mlx.h>
+# include "../minilibx-linux/mlx.h"
+//# include <mlx.h>
 # include "./struct.h"
 
 //PARSING
@@ -47,29 +47,34 @@
 # define POS_PY (HEIGHT - ((HEIGHT / 2.5) / 2) - GAP_MAP)
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
-# define NUM_RAYS 100
+# define NUM_RAYS 200
 # define SIZE_PIXEL 64
 # define COLOR_PLAYER 0xA30B37
 # define BLACK 0x000000
 # define VIDE 0xBBB6DF
 # define MUR 0x4E8098
 # define FOND 0x040404
+//TEXTURES
+# define NO 1
+# define SO 2
+# define WE 3
+# define EA 4
 // KEYS
-// # define LEFT 97
-// # define TOP 119
-// # define RIGHT 100
-// # define BOT 115
-// # define CAM_LEFT 65361
-// # define CAM_RIGHT 65363
-// # define ESC 65307
+# define LEFT 97
+# define TOP 119
+# define RIGHT 100
+# define BOT 115
+# define CAM_LEFT 65361
+# define CAM_RIGHT 65363
+# define ESC 65307
 //KEYS MAC
-# define LEFT 0
-# define TOP 13
-# define RIGHT 2
-# define BOT 1
-# define ESC 53
-# define CAM_LEFT 123
-# define CAM_RIGHT 124
+// # define LEFT 0
+// # define TOP 13
+// # define RIGHT 2
+// # define BOT 1
+// # define ESC 53
+// # define CAM_LEFT 123
+// # define CAM_RIGHT 124
 // name_parse.c
 void	name_file(int ac, char *av);
 
@@ -152,5 +157,5 @@ void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col);
 void	load_imgs(t_data *data);
 void	destroy_imgs(t_data *data);
 //draw_textures.c
-
+t_img	get_correct_texture(t_data *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:17:51 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/04 22:36:47 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/07 23:03:23 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ t_trigo	horizontal_check(t_data *data, double angle)
 	intan = -1 / tan(tri.ray_angle);
 	tri.start_ray.x = data->player.x;
 	tri.start_ray.y = data->player.y;
-	if (tri.ray_angle > M_PI ) //regarde en bas
+	if (tri.ray_angle > M_PI) //regarde en bas
 	{
 		tri.end_ray.y = (((int)data->player.y >> 6) << 6) - 0.0001;
 		tri.end_ray.x = (data->player.y - tri.end_ray.y) * intan + data->player.x;
@@ -142,6 +142,39 @@ double	distance(t_point_f a, t_point_f b)
 	return (sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y)));
 }
 
+void	set_pos_looked(t_data *data, t_trigo tri, int is_hori)
+{
+
+	if (tri.ray_angle < M_PI / 2)
+	{
+		if (is_hori)
+			data->textures.dir_looked = SO;
+		else
+			data->textures.dir_looked = EA;
+	}
+	else if (tri.ray_angle < M_PI)
+	{
+		if (is_hori)
+			data->textures.dir_looked = SO;
+		else
+			data->textures.dir_looked = WE;
+	}
+	else if (tri.ray_angle < 3 * M_PI / 2)
+	{
+		if (is_hori)
+			data->textures.dir_looked = NO;
+		else
+			data->textures.dir_looked = WE;
+	}
+	else
+	{
+		if (is_hori)
+			data->textures.dir_looked = NO;
+		else
+			data->textures.dir_looked = EA;
+	}
+}
+
 double	trace_ray(t_data *data, double angle)
 {
 	t_trigo	hori;
@@ -159,12 +192,14 @@ double	trace_ray(t_data *data, double angle)
 		dist_h = HEIGHT;
 	if (dist_h < dist_v)
 	{
+		set_pos_looked(data, hori, 1);
 		data->textures.x_wall_hit = hori.end_ray.x;
 		return(dist_h);
 	}
 	else
 	{
-		data->textures.x_wall_hit = vert.end_ray.x;
+		set_pos_looked(data, vert, 0);
+		data->textures.x_wall_hit = vert.end_ray.y;
 		return(dist_v);
 	}
 }

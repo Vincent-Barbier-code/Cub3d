@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/04 22:30:38 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/07 22:44:51 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_textures {
     int		*floor;
     int		*ceiling;
 	double	x_wall_hit;
+	int		dir_looked;
 }            t_textures;
 
 typedef struct s_draw {
