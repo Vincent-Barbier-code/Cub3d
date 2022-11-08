@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/01 19:38:01 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:14:02 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	quad_vertical(t_data *data, int x, int y)
 	{
 		while (y1 < HEIGHT)
 		{
-			if (can_draw(x1, y1))
+			if (can_draw(data, x1, y1))
 				my_mlx_pixel_put(data, x1, y1, FOND);
 			y1++;
 		}
@@ -43,7 +43,7 @@ void	quadrillage(t_data *data, int x, int y)
 	{
 		while (x1 < WIDTH)
 		{
-			if (can_draw(x1, y1))
+			if (can_draw(data, x1, y1))
 				my_mlx_pixel_put(data, x1, y1, FOND);
 			x1++;
 		}
@@ -96,18 +96,19 @@ void	black_out(t_data *data)
 
 void	refresh_2d(t_data *data)
 {
-    black_out(data);
+	mlx_destroy_image(data->mlx, data->img);
+	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	black_out(data);
 	trace_rays(data);
-	
 	init_map(data);
 	map_2d(data);
 	trace_tilted(data);
-	// quadrillage(data, - data->player.x + 4, -data->player.y);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 }
 
 void	affiche_2d(t_data *data)
 {
+	data->buffer = 0;
 	data->addr = mlx_get_data_addr(data->img, \
 	&data->bits_per_pixel, &data->line_length, &data->endian);
 	init_player(data);

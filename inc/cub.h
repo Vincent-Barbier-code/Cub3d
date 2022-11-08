@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/01 20:33:26 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:44:21 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,14 @@
 # define ERR_COLOR 17
 # define ERR_COLOR_NUM 18
 // SCREEN
-# define WIDTH 1600
-# define HEIGHT 1000
+# define WIDTH 1000
+# define HEIGHT 600
 // MINIMAP
 // NOT USE FOR VINCENT # define SIZE_PIXEL 20
 # define SIZE_PIXMAP 32
 # define SIZE_PLAYER 6
 # define COLOR_RAY 0xA30B37
 # define GAP_MAP 40
-# define POS_MAP_X (WIDTH - (WIDTH / 4) - GAP_MAP)
-# define POS_MAP_Y (HEIGHT - (HEIGHT / 2.5) - GAP_MAP)
-# define POS_PX (WIDTH - ((WIDTH / 4) / 2) - GAP_MAP)
-# define POS_PY (HEIGHT - ((HEIGHT / 2.5) / 2) - GAP_MAP)
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
 # define NUM_RAYS 100
@@ -87,7 +83,6 @@ int		verif_left(t_map *map, int y, int x, int (*f)(char));
 void	init_textures(t_data *data);
 void	get_textures(t_data *data);
 
-
 //verif_char.c
 double	is_player(char c);
 void	verif_char(t_data *data);
@@ -107,7 +102,7 @@ void	map_2d(t_data *data);
 int		can_move(t_data *data, int pos, char c);
 
 //draw.c
-int		can_draw(int x, int y);
+int		can_draw(t_data *data, int x, int y);
 void	init_map(t_data *data);
 void	draw_map_2d(t_data *data, int x, int y, int color);
 int		formule(t_data *data, t_draw draw, char c);
@@ -135,4 +130,5 @@ void	trace_tilted(t_data *data);
 
 //ray_caster.c
 void	trace_rays(t_data *data);
+
 #endif

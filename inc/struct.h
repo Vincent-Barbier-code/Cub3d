@@ -6,10 +6,10 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/29 15:54:46 by vbarbier         ###   ########.fr       */
-/*   Updated: 2022/10/29 15:31:38 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/08 18:21:01 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "cub.h"
 
@@ -54,6 +54,7 @@ typedef struct s_draw {
 	double	pos_x;
 	double	pos_y;
 }				t_draw;
+
 typedef struct s_data {
 	void		*mlx;
 	void		*mlx_win;
@@ -68,6 +69,11 @@ typedef struct s_data {
 	t_map		*map;
 	t_player	player;
 	t_draw		draw;
+	int			buffer;
+	int			POS_MAP_X; 
+	int			POS_MAP_Y;
+	int			POS_PX;
+	int			POS_PY;
 	// t_assets	assets;
 }				t_data;
 

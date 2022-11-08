@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:48:09 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 19:58:15 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:48:45 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_new_map(t_data *data, int y, int x)
 {
-	char *str;
-	int	len;
+	char	*str;
+	int		len;
 
 	len = ft_strlen(data->map->carte[y]);
 	if (data->map->carte[y][x + 1] == '\n')
@@ -29,7 +29,7 @@ void	x_max_map(t_data *data)
 {
 	int	x;
 	int	y;
-	int max_x;
+	int	max_x;
 
 	max_x = 0;
 	x = 0;
@@ -65,7 +65,7 @@ void	clean_map(t_data *data)
 		while (data->map->carte[y][x])
 		{	
 			if (data->map->carte[y][x] == '\n' && x < data->map->x_max - 1)
-				add_space(data, y, x); 
+				add_space(data, y, x);
 			x++;
 		}
 		x = 0;

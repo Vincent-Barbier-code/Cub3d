@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:23:56 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/01 18:51:58 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:39:49 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,25 @@ int	can_move(t_data *data, int pos, char c)
 // 			data->player.x = data->player.x  + 1;
 // }
 
-void	draw_player_c(t_data *data)
-{
-	int	x;
-	int	y;
-	int size;
+// void	draw_player_c(t_data *data)
+// {
+// 	int	x;
+// 	int	y;
+// 	int size;
 
-	size = SIZE_PLAYER;
-	x = POS_PX;
-	y = POS_PY;
-	while (y < POS_PY + size\
-	&& POS_PY + size < HEIGHT)
-	{
-		while (x < POS_PX + size\
-		&& POS_PX + size < WIDTH)
-		{
-			my_mlx_pixel_put(data, x, y, data->player.color);
-			x++;
-		}
-		y++;
-		x = POS_PX;
-	}
-}
+// 	size = SIZE_PLAYER;
+// 	x = data.POS_PX;
+// 	y = data.POS_PY;
+// 	while (y < data.POS_PY + size\
+// 	&& POS_PY + size < HEIGHT)
+// 	{
+// 		while (x < POS_PX + size\
+// 		&& POS_PX + size < WIDTH)
+// 		{
+// 			my_mlx_pixel_put(data, x, y, data->player.color);
+// 			x++;
+// 		}
+// 		y++;
+// 		x = POS_PX;
+// 	}
+// }
