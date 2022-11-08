@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/04 13:57:36 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/08 12:11:57 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	parsing(int ac, char *name, t_data *data)
 	init_file(data, name);
 	init_textures(data);
 	get_textures(data);
+	set_default_textures(data);
 	// verif color
 	data->map->carte = data->file;
 	data->map->y_max = y_max_map(data->map);
