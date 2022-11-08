@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:21:03 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 23:17:06 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 23:34:33 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ double	is_valid_char(t_map *map, int y, int x)
 	static int	i = 0;
 
 	if (!is_near_empty(map->carte[y][x]) && map->carte[y][x] != '0'\
-	&& !is_player(map->carte[y][x] == -1))
+	&& is_player(map->carte[y][x]) == -1)
 		name_error(4);
 	if (is_player(map->carte[y][x]) != -1)
 	{
