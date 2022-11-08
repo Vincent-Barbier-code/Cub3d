@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_carre.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:23:56 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 22:39:49 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 23:11:47 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,9 @@ int	can_move(t_data *data, int pos, char c)
 // 	size = SIZE_PLAYER;
 // 	x = data.POS_PX;
 // 	y = data.POS_PY;
-// 	while (y < data.POS_PY + size\
-// 	&& POS_PY + size < HEIGHT)
+// 	while (y < data.POS_PY + size && POS_PY + size < HEIGHT)
 // 	{
-// 		while (x < POS_PX + size\
-// 		&& POS_PX + size < WIDTH)
+// 		while (x < POS_PX + size && POS_PX + size < WIDTH)
 // 		{
 // 			my_mlx_pixel_put(data, x, y, data->player.color);
 // 			x++;
