@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 22:37:34 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:21:01 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_draw {
 	double	pos_x;
 	double	pos_y;
 }				t_draw;
+
 typedef struct s_data {
 	void		*mlx;
 	void		*mlx_win;
