@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/07 23:09:17 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/08 19:15:39 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@
 // # define ESC 53
 // # define CAM_LEFT 123
 // # define CAM_RIGHT 124
+//PARSING
 // name_parse.c
 void	name_file(int ac, char *av);
 
@@ -100,7 +101,20 @@ int		verif_left(t_map *map, int y, int x, int (*f)(char));
 //verif_textures
 void	init_textures(t_data *data);
 void	get_textures(t_data *data);
+void	textures_errors(int err_num);
+void	skip_spaces(int *letter, char *str);
 
+//init_textures.c
+void	init_textures(t_data *data);
+char	*set_element(int *letter, int line, char **file);
+void	get_texture_path(char *path, t_data *data, char *element);
+void	set_default_textures(t_data *data);
+
+//init_colors.c
+void	set_default_colors(t_data *data);
+
+//verif_colors.c
+void	get_colors_FC(char *RGB, t_data *data, char *element);
 
 //verif_char.c
 double	is_player(char c);

@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:25:16 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/04 12:38:25 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/08 19:28:41 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	win_close(t_data *data)
 {
+	destroy_imgs(data);
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_clear_window(data->mlx, data->mlx_win);
 	mlx_destroy_window(data->mlx, data->mlx_win);
-	//mlx_destroy_display(data->mlx);
-	destroy_imgs(data);
+	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	ft_garbage_collector(END, NULL);
 	exit(0);

@@ -6,13 +6,13 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:06:11 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/08 12:06:49 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/08 19:20:14 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-void	check_colors(char *RGB)
+static void	check_colors(char *RGB)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ void	check_colors(char *RGB)
 	}
 }
 
-int	*get_colors(char *RGB)
+static int	*get_colors(char *RGB)
 {
 	int	i;
 	int	j;
@@ -48,6 +48,11 @@ int	*get_colors(char *RGB)
 	int	*color_nums;
 
 	color_nums = ft_malloc(sizeof(int) * 3);
+	if (! color_nums)
+	{
+		ft_garbage_collector(END, NULL);
+		exit(1);
+	}
 	i = 0;
 	j = 0;
 	while (i < 3)
@@ -90,10 +95,13 @@ void	get_colors_FC(char *RGB, t_data *data, char *element)
 			textures_errors(ERR_NUM_COLOR);
 		data->textures.floor = colors;
 	}
-	if (!ft_strncmp(element, "C", 2))
+	else if (!ft_strncmp(element, "C", 2))
 	{
 		if (data->textures.ceiling)
 			textures_errors(ERR_NUM_COLOR);
 		data->textures.ceiling = colors;
 	}
+	else
+		ft_free(colors);
 }
+

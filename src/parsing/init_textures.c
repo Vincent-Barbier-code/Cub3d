@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:12:44 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/08 17:37:50 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/08 18:50:06 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	set_default_textures(t_data *data)
 	
 	if (!data->textures.path_EA)
 	{
-		path = 'textures/EA.xpm';
+		path = "./textures/EA.xpm";
 		fd = open(path, O_RDONLY);
 		if (fd == -1)
 			textures_errors(ERR_WRONG_FILE);
@@ -109,7 +109,7 @@ void	set_default_textures(t_data *data)
 	}
 	if (!data->textures.path_NO)
 	{
-		path = 'textures/NO.xpm';
+		path = "./textures/NO.xpm";
 		fd = open(path, O_RDONLY);
 		if (fd == -1)
 			textures_errors(ERR_WRONG_FILE);
@@ -118,7 +118,7 @@ void	set_default_textures(t_data *data)
 	}
 	if (!data->textures.path_SO)
 	{
-		path = 'textures/SO.xpm';
+		path = "./textures/SO.xpm";
 		fd = open(path, O_RDONLY);
 		if (fd == -1)
 			textures_errors(ERR_WRONG_FILE);
@@ -127,7 +127,7 @@ void	set_default_textures(t_data *data)
 	}
 	if (!data->textures.path_WE)
 	{
-		path = 'textures/WE.xpm';
+		path = "./textures/WE.xpm";
 		fd = open(path, O_RDONLY);
 		if (fd == -1)
 			textures_errors(ERR_WRONG_FILE);

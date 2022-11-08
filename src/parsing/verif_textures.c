@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 23:17:14 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/08 12:13:44 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/08 18:43:28 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	skip_spaces(int *letter, char *str)
 		*letter += 1;
 }
 
-int	is_map_line(char *line)
+static int	is_map_line(char *line)
 {
 	int	letter;
 
@@ -67,7 +67,7 @@ int	is_map_line(char *line)
 	return (1);
 }
 
-void    trim_map(t_data *data, int start_map)
+static void    trim_map(t_data *data, int start_map)
 {
     int        line;
     
