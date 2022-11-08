@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 22:41:01 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:25:05 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	parsing(int ac, char *name, t_data *data)
 	init_file(data, name);
 	init_textures(data);
 	get_textures(data);
+	set_default_textures(data);
+	set_default_colors(data);
 	// verif color
 	data->map->carte = data->file;
 	data->map->y_max = y_max_map(data->map);
@@ -73,6 +75,7 @@ int	main(int ac, char **av)
 	parsing(ac, av[1], &data);
 	init_size_map(&data);
 	new_window(&data);
+	load_imgs(&data);
 	affiche_2d(&data);
 	//trace_tilted(&data);
 	mlx_hook(data.mlx_win, 2, 1L << 0, key_press, &data);

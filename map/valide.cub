@@ -1,10 +1,10 @@
-NO ./textures/NO
-SO ./textures/SO
-WE ./textures/WE
-EA ./textures/EA
+NO ./textures/NO.xpm
+SO ./textures/SO.xpm
+WE ./textures/WE.xpm
+EA ./textures/EA.xpm
 
-F 220,100,0
-C 225,30,0
+F 75, 78, 82
+C 101, 101, 102
 
         1111111111111111111111111
         1000000000110000000000001

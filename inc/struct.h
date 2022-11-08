@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 18:21:01 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/07 22:44:51 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,27 @@ typedef struct s_map {
 	int			x_max;
 }				t_map;
 
+typedef struct s_img {
+	void	*pointer;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	char	*addr;
+}				t_img;
+
 typedef struct s_textures {
     char	*path_NO;
     char	*path_SO;
     char	*path_WE;
     char	*path_EA;
+	t_img	asset_NO;
+	t_img	asset_SO;
+	t_img	asset_WE;
+	t_img	asset_EA;
     int		*floor;
     int		*ceiling;
+	double	x_wall_hit;
+	int		dir_looked;
 }            t_textures;
 
 typedef struct s_draw {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/03 22:44:21 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:15:39 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
-// # include <mlx.h>
+//# include <mlx.h>
 # include "./struct.h"
 
 //PARSING
@@ -30,9 +30,11 @@
 # define ERR_WRONG_FILE 16
 # define ERR_COLOR 17
 # define ERR_COLOR_NUM 18
+# define ERR_NUM_PATH 19
+# define ERR_NUM_COLOR 20
 // SCREEN
-# define WIDTH 1000
-# define HEIGHT 600
+# define WIDTH 800
+# define HEIGHT 500
 // MINIMAP
 // NOT USE FOR VINCENT # define SIZE_PIXEL 20
 # define SIZE_PIXMAP 32
@@ -41,13 +43,18 @@
 # define GAP_MAP 40
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
-# define NUM_RAYS 100
+# define NUM_RAYS 200
 # define SIZE_PIXEL 64
 # define COLOR_PLAYER 0xA30B37
 # define BLACK 0x000000
 # define VIDE 0xBBB6DF
 # define MUR 0x4E8098
 # define FOND 0x040404
+//TEXTURES
+# define NO 1
+# define SO 2
+# define WE 3
+# define EA 4
 // KEYS
 # define LEFT 97
 # define TOP 119
@@ -56,7 +63,15 @@
 # define CAM_LEFT 65361
 # define CAM_RIGHT 65363
 # define ESC 65307
-
+//KEYS MAC
+// # define LEFT 0
+// # define TOP 13
+// # define RIGHT 2
+// # define BOT 1
+// # define ESC 53
+// # define CAM_LEFT 123
+// # define CAM_RIGHT 124
+//PARSING
 // name_parse.c
 void	name_file(int ac, char *av);
 
@@ -82,6 +97,20 @@ int		verif_left(t_map *map, int y, int x, int (*f)(char));
 //verif_textures
 void	init_textures(t_data *data);
 void	get_textures(t_data *data);
+void	textures_errors(int err_num);
+void	skip_spaces(int *letter, char *str);
+
+//init_textures.c
+void	init_textures(t_data *data);
+char	*set_element(int *letter, int line, char **file);
+void	get_texture_path(char *path, t_data *data, char *element);
+void	set_default_textures(t_data *data);
+
+//init_colors.c
+void	set_default_colors(t_data *data);
+
+//verif_colors.c
+void	get_colors_FC(char *RGB, t_data *data, char *element);
 
 //verif_char.c
 double	is_player(char c);
@@ -131,4 +160,12 @@ void	trace_tilted(t_data *data);
 //ray_caster.c
 void	trace_rays(t_data *data);
 
+//3D
+//draw_walls.c
+void	trace_pix_column(t_data *data, double len_ray, int n_pix_col, int ind_col);
+//load_textures.c
+void	load_imgs(t_data *data);
+void	destroy_imgs(t_data *data);
+//draw_textures.c
+t_img	get_correct_texture(t_data *data);
 #endif
