@@ -6,7 +6,7 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:38:57 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 17:23:37 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:27:00 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	verif_up(t_map *map, int y, int x, int (*f)(char))
 			return (0);
 	}
 	return (2);
-	
 }
 
 int	verif_down(t_map *map, int y, int x, int (*f)(char))
@@ -58,5 +57,5 @@ int	verif_left(t_map *map, int y, int x, int (*f)(char))
 		else
 			return (0);
 	}
-		return (2);
+	return (2);
 }
