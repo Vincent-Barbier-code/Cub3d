@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:12:44 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 20:16:09 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:58:12 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	init_textures(t_data *data)
 {
 	data->textures.ceiling = NULL;
 	data->textures.floor = NULL;
-	data->textures.path_EA = NULL;
-	data->textures.path_NO = NULL;
-	data->textures.path_SO = NULL;
-	data->textures.path_WE = NULL;
+	data->textures.path_ea = NULL;
+	data->textures.path_no = NULL;
+	data->textures.path_so = NULL;
+	data->textures.path_we = NULL;
 }
 
 static char	*malloc_path(char *path, char *struct_path)
@@ -52,13 +52,13 @@ void	get_texture_path(char *path, t_data *data, char *element)
 		textures_errors(ERR_WRONG_FILE);
 	fd_close_error(close(fd));
 	if (!ft_strncmp(element, "NO", 2))
-		data->textures.path_NO = malloc_path(path, data->textures.path_NO);
+		data->textures.path_no = malloc_path(path, data->textures.path_no);
 	if (!ft_strncmp(element, "SO", 2))
-		data->textures.path_SO = malloc_path(path, data->textures.path_SO);
+		data->textures.path_so = malloc_path(path, data->textures.path_so);
 	if (!ft_strncmp(element, "WE", 2))
-		data->textures.path_WE = malloc_path(path, data->textures.path_WE);
+		data->textures.path_we = malloc_path(path, data->textures.path_we);
 	if (!ft_strncmp(element, "EA", 2))
-		data->textures.path_EA = malloc_path(path, data->textures.path_EA);
+		data->textures.path_ea = malloc_path(path, data->textures.path_ea);
 }
 
 char	*check_default_path(char *path)
@@ -78,16 +78,16 @@ char	*check_default_path(char *path)
 
 void	set_default_textures(t_data *data)
 {
-	if (!data->textures.path_EA)
-		data->textures.path_EA \
+	if (!data->textures.path_ea)
+		data->textures.path_ea \
 			= check_default_path("./textures/EA.xpm");
-	if (!data->textures.path_NO)
-		data->textures.path_NO \
+	if (!data->textures.path_no)
+		data->textures.path_no \
 			= check_default_path("./textures/NO.xpm");
-	if (!data->textures.path_SO)
-		data->textures.path_SO \
+	if (!data->textures.path_so)
+		data->textures.path_so \
 			= check_default_path("./textures/SO.xpm");
-	if (!data->textures.path_WE)
-		data->textures.path_WE \
+	if (!data->textures.path_we)
+		data->textures.path_we \
 			= check_default_path("./textures/WE.xpm");
 }

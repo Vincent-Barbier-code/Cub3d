@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:21:52 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 18:10:49 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 21:04:45 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static void	error_destroy_imgs(t_data *data, int cmp)
 {
 	if (cmp > 0)
-		mlx_destroy_image(data->mlx, data->textures.asset_NO.pointer);
+		mlx_destroy_image(data->mlx, data->textures.asset_no.pointer);
 	if (cmp > 1)
-		mlx_destroy_image(data->mlx, data->textures.asset_SO.pointer);
+		mlx_destroy_image(data->mlx, data->textures.asset_so.pointer);
 	if (cmp > 2)
-		mlx_destroy_image(data->mlx, data->textures.asset_WE.pointer);
+		mlx_destroy_image(data->mlx, data->textures.asset_we.pointer);
 	if (cmp > 3)
-		mlx_destroy_image(data->mlx, data->textures.asset_EA.pointer);
+		mlx_destroy_image(data->mlx, data->textures.asset_ea.pointer);
 }
 
 void	error_img(t_data *data, int cmp)
@@ -65,20 +65,20 @@ static t_img	load_img(t_data *data, char *path)
 
 void	load_imgs(t_data *data)
 {
-	data->textures.asset_NO = load_img(data, data->textures.path_NO);
-	data->textures.asset_SO = load_img(data, data->textures.path_SO);
-	data->textures.asset_WE = load_img(data, data->textures.path_WE);
-	data->textures.asset_EA = load_img(data, data->textures.path_EA);
+	data->textures.asset_no = load_img(data, data->textures.path_no);
+	data->textures.asset_so = load_img(data, data->textures.path_so);
+	data->textures.asset_we = load_img(data, data->textures.path_we);
+	data->textures.asset_ea = load_img(data, data->textures.path_ea);
 }
 
 void	destroy_imgs(t_data *data)
 {
-	if (data->textures.asset_NO.pointer)
-		mlx_destroy_image(data->mlx, data->textures.asset_NO.pointer);
-	if (data->textures.asset_SO.pointer)
-		mlx_destroy_image(data->mlx, data->textures.asset_SO.pointer);
-	if (data->textures.asset_WE.pointer)
-		mlx_destroy_image(data->mlx, data->textures.asset_WE.pointer);
-	if (data->textures.asset_EA.pointer)
-		mlx_destroy_image(data->mlx, data->textures.asset_EA.pointer);
+	if (data->textures.asset_no.pointer)
+		mlx_destroy_image(data->mlx, data->textures.asset_no.pointer);
+	if (data->textures.asset_so.pointer)
+		mlx_destroy_image(data->mlx, data->textures.asset_so.pointer);
+	if (data->textures.asset_we.pointer)
+		mlx_destroy_image(data->mlx, data->textures.asset_we.pointer);
+	if (data->textures.asset_ea.pointer)
+		mlx_destroy_image(data->mlx, data->textures.asset_ea.pointer);
 }
