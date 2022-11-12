@@ -3,11 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 20:37:47 by vbarbier         ###   ########.fr       */
-/*   Updated: 2022/11/12 20:49:11 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 22:34:49 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +124,7 @@ void	draw_player_c(t_data *data);
 void	draw_player_t(t_data *data);
 double	get_player_pos(t_map *map, char c);
 void	init_player(t_data *data);
-void    move_cam(t_data *data, int key);
+void	move_cam(t_data *data, int key);
 
 //move_player.c
 void	move_player(t_data *data, int key);

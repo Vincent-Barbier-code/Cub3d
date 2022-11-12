@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 21:07:05 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 22:24:41 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,10 @@ typedef struct s_data {
 	t_player	player;
 	t_draw		draw;
 	int			buffer;
+	int			pos_map_x;
+	int			pos_map_y;
+	int			pos_px;
+	int			pos_py;
 }				t_data;
 
 typedef struct s_trace_line {

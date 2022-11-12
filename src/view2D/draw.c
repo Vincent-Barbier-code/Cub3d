@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:59:04 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 18:21:46 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 22:24:41 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	can_draw(t_data *data, int x, int y)
 {
-	if (x >= data->POS_MAP_X && y >= data->POS_MAP_Y && \
+	if (x >= data->pos_map_x && y >= data->pos_map_y && \
 	x < WIDTH - GAP_MAP && y < HEIGHT - GAP_MAP)
 		return (1);
 	return (0);
@@ -45,9 +45,9 @@ static void	init_draw(t_data *data, int x, int y)
 	data->draw.size = SIZE_PIXMAP;
 	data->draw.pos_x = get_player_pos(data->map, 'x');
 	data->draw.pos_y = get_player_pos(data->map, 'y');
-	data->draw.x = x * data->draw.size + data->POS_PX - data->draw.pos_x \
+	data->draw.x = x * data->draw.size + data->pos_px - data->draw.pos_x \
 	* data->draw.size - data->draw.size / 2 + SIZE_PLAYER / 2;
-	data->draw.y = y * data->draw.size + data->POS_PY - data->draw.pos_y \
+	data->draw.y = y * data->draw.size + data->pos_py - data->draw.pos_y \
 	* data->draw.size - data->draw.size / 2 + SIZE_PLAYER / 2;
 	data->draw.cp_x = data->draw.x;
 	data->draw.cp_y = data->draw.y;

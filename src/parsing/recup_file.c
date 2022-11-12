@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 21:34:37 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 22:33:41 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ void	init_file(t_data *data, char *nom)
 		free(str);
 		str = get_next_line(fd);
 	}
-	if (str)
-		free(str);
+	free(str);
 	data->file[i] = NULL;
 	fd_close_error(close(fd));
 }
