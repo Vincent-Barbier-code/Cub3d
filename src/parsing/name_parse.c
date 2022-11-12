@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   name_parse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 02:20:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/09/18 22:34:20 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 19:08:12 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 void	name_error(int cas)
 {
 	if (cas == 0)
-		ft_putstr_fd("Error\nName of the file is not valid", 2);
+		ft_putstr_fd("Error\nName of the file is not valid\n", 2);
 	if (cas == 1)
-		ft_putstr_fd("Error\nThe file is not a .cub", 2);
+		ft_putstr_fd("Error\nThe file is not a .cub\n", 2);
 	if (cas == 2)
-		ft_putstr_fd("Error\nNumbers of arguments is invalid", 2);
+		ft_putstr_fd("Error\nNumber of arguments is invalid\n", 2);
 	if (cas == 3)
-		ft_putstr_fd("Error\nMap : not closed by walls", 2);
+		ft_putstr_fd("Error\nMap : not closed by walls\n", 2);
 	if (cas == 4)
-		ft_putstr_fd("Error\nMap : invalid character(s)", 2);
+		ft_putstr_fd("Error\nMap : invalid character(s)\n", 2);
 	if (cas == 5)
-		ft_putstr_fd("Error\nMap : invalid number of player", 2);
+		ft_putstr_fd("Error\nMap : invalid number of player\n", 2);
 	if (cas == 6)
-		ft_putstr_fd("Error\nMlx : initializing new window", 2);
+		ft_putstr_fd("Error\nMlx : initializing new window\n", 2);
 	ft_garbage_collector(END, NULL);
 	exit(EXIT_FAILURE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   recup_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/10/07 14:56:18 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 20:19:03 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	ligne_verif(char *nom)
 		ligne++;
 		ft_free(str);
 	}
+	fd_close_error(close(fd));
 }
 
 void	init_file(t_data *data, char *nom)
@@ -54,16 +55,18 @@ void	init_file(t_data *data, char *nom)
 	fd = open(nom, O_RDONLY);
 	fd_close_error(fd);
 	data->file = ft_malloc(sizeof(data->file) * (ligne + 1));
+	if (!data->file)
+		malloc_error();
 	str = get_next_line(fd);
 	while (str)
 	{
 		data->file[i] = ft_strdup(str);
+		if (!data->file[i++])
+			malloc_error();
 		free(str);
-		i++;
 		str = get_next_line(fd);
 	}
 	free(str);
 	data->file[i] = NULL;
-	close(fd);
-	return ;
+	fd_close_error(close(fd));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trace_t_dial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 02:09:49 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/12 20:31:29 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 01:04:48 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	first_octal(t_line l, int dx, int dy)
 void	first_dial(t_line l, int dx, int dy)
 {
 	int	e;
+
 	if (dx >= dy)
 		first_octal(l, dx, dy);
 	else
@@ -60,7 +61,7 @@ void	first_dial(t_line l, int dx, int dy)
 static void	fourth_octal(t_line l, int dx, int dy)
 {
 	int	e;
-	
+
 	e = dx;
 	dx = e * 2;
 	dy *= 2;
@@ -80,7 +81,7 @@ static void	fourth_octal(t_line l, int dx, int dy)
 void	second_dial(t_line l, int dx, int dy)
 {
 	int	e;
-	
+
 	if (-dx >= dy)
 		fourth_octal(l, dx, dy);
 	else

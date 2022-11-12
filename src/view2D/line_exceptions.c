@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 02:07:11 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/12 20:30:39 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 01:01:01 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	horizontal_line(t_line l, int dx)
 {
-	if (dx > 0) //horizontal vector to the right
+	if (dx > 0)
 	{
 		while (l.a.x != l.b.x)
 		{
@@ -22,7 +22,7 @@ static void	horizontal_line(t_line l, int dx)
 			l.a.x++;
 		}
 	}
-	else ////horizontal vector to the left
+	else
 	{
 		while (l.a.x != l.b.x)
 		{
@@ -35,7 +35,7 @@ static void	horizontal_line(t_line l, int dx)
 
 static void	vertical_line(t_line l, int dy)
 {
-	if (dy > 0) //vertical vector to the top
+	if (dy > 0)
 	{
 		while (l.a.y != l.b.y)
 		{
@@ -43,7 +43,7 @@ static void	vertical_line(t_line l, int dy)
 			l.a.y++;
 		}
 	}
-	else ////vertical vector to the bottom
+	else
 	{
 		while (l.a.y != l.b.y)
 		{
@@ -56,7 +56,6 @@ static void	vertical_line(t_line l, int dy)
 
 int	line_exceptions(t_line l, int dx, int dy)
 {
-
 	if (dy == 0)
 	{
 		horizontal_line(l, dx);

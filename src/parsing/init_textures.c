@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:12:44 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/08 18:50:06 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:58:12 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,22 @@ void	init_textures(t_data *data)
 {
 	data->textures.ceiling = NULL;
 	data->textures.floor = NULL;
-	data->textures.path_EA = NULL;
-	data->textures.path_NO = NULL;
-	data->textures.path_SO = NULL;
-	data->textures.path_WE = NULL;
+	data->textures.path_ea = NULL;
+	data->textures.path_no = NULL;
+	data->textures.path_so = NULL;
+	data->textures.path_we = NULL;
 }
 
-char	*set_element(int *letter, int line, char **file)
+static char	*malloc_path(char *path, char *struct_path)
 {
-	int		i;
+	char	*malloced_path;
 
-	i = 0;
-	while (file[line][*letter + i] != ' ')
-		i++;
-	if (i == 1)
-	{
-		if (!ft_strncmp(&file[line][*letter], "F", 1))
-			return ("F");
-		if (!ft_strncmp(&file[line][*letter], "C", 1))
-			return ("C");
-	}
-	if (i == 2)
-	{
-		if (!ft_strncmp(&file[line][*letter], "NO", 2))
-			return ("NO");
-		if (!ft_strncmp(&file[line][*letter], "SO", 2))
-			return ("SO");	
-		if (!ft_strncmp(&file[line][*letter], "WE", 2))
-			return ("WE");
-		if (!ft_strncmp(&file[line][*letter], "EA", 2))
-			return ("EA");
-	}
-	return (NULL);
+	if (struct_path)
+		textures_errors(ERR_NUM_PATH);
+	malloced_path = ft_strdup(path);
+	if (!malloced_path)
+		malloc_error();
+	return (malloced_path);
 }
 
 void	get_texture_path(char *path, t_data *data, char *element)
@@ -66,72 +50,44 @@ void	get_texture_path(char *path, t_data *data, char *element)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		textures_errors(ERR_WRONG_FILE);
-	close(fd);
+	fd_close_error(close(fd));
 	if (!ft_strncmp(element, "NO", 2))
-	{
-		if (data->textures.path_NO)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_NO = ft_strdup(path);
-	}
+		data->textures.path_no = malloc_path(path, data->textures.path_no);
 	if (!ft_strncmp(element, "SO", 2))
-	{
-		if (data->textures.path_SO)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_SO = ft_strdup(path);
-	}
+		data->textures.path_so = malloc_path(path, data->textures.path_so);
 	if (!ft_strncmp(element, "WE", 2))
-	{
-		if (data->textures.path_WE)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_WE = ft_strdup(path);
-	}
+		data->textures.path_we = malloc_path(path, data->textures.path_we);
 	if (!ft_strncmp(element, "EA", 2))
-	{
-		if (data->textures.path_EA)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_EA = ft_strdup(path);
-	}
+		data->textures.path_ea = malloc_path(path, data->textures.path_ea);
+}
+
+char	*check_default_path(char *path)
+{
+	char	*malloced_path;
+	int		fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		textures_errors(ERR_WRONG_FILE);
+	fd_close_error(close(fd));
+	malloced_path = ft_strdup(path);
+	if (!malloced_path)
+		malloc_error();
+	return (malloced_path);
 }
 
 void	set_default_textures(t_data *data)
 {
-	char	*path;
-	int		fd;
-	
-	if (!data->textures.path_EA)
-	{
-		path = "./textures/EA.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_EA = path;
-	}
-	if (!data->textures.path_NO)
-	{
-		path = "./textures/NO.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_NO = path;
-	}
-	if (!data->textures.path_SO)
-	{
-		path = "./textures/SO.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_SO = path;
-	}
-	if (!data->textures.path_WE)
-	{
-		path = "./textures/WE.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_WE = path;
-	}
+	if (!data->textures.path_ea)
+		data->textures.path_ea \
+			= check_default_path("./textures/EA.xpm");
+	if (!data->textures.path_no)
+		data->textures.path_no \
+			= check_default_path("./textures/NO.xpm");
+	if (!data->textures.path_so)
+		data->textures.path_so \
+			= check_default_path("./textures/SO.xpm");
+	if (!data->textures.path_we)
+		data->textures.path_we \
+			= check_default_path("./textures/WE.xpm");
 }
