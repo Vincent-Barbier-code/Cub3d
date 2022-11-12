@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:12:44 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 20:00:53 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:16:09 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ char	*check_default_path(char *path)
 		textures_errors(ERR_WRONG_FILE);
 	fd_close_error(close(fd));
 	malloced_path = ft_strdup(path);
+	if (!malloced_path)
 		malloc_error();
 	return (malloced_path);
 }

@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 20:02:21 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:19:03 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ void	init_file(t_data *data, char *nom)
 	while (str)
 	{
 		data->file[i] = ft_strdup(str);
-		if (!data->file[i])
+		if (!data->file[i++])
 			malloc_error();
 		free(str);
-		i++;
 		str = get_next_line(fd);
 	}
 	free(str);

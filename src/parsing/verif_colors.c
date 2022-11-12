@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:06:11 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 19:46:21 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:23:02 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	loop_on_num(int *j, char *RGB)
 {
 	int	save_j;
-	
+
 	save_j = *j;
 	while (ft_isdigit(RGB[*j]))
 		*j += 1;
