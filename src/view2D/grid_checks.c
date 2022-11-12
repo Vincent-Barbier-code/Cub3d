@@ -6,13 +6,13 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 01:15:58 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 01:20:57 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 03:04:30 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-static int		is_wall(t_point_f p, t_map map)
+static int	is_wall(t_point_f p, t_map map)
 {
 	int	ind_x;
 	int	ind_y;
@@ -28,42 +28,48 @@ static int		is_wall(t_point_f p, t_map map)
 	return (0);
 }
 
-t_trigo	vertical_check(t_data *data, double angle)
+static t_trigo	init_ray_vert(double *dx, double *dy, t_data *data, t_trigo tri)
 {
-	int		stop;
-	t_trigo	tri;
-	double	ntan;
-	double	dx;
-	double	dy;
+	double	nt;
 
-	stop = 0;
-	dx = 0;
-	dy = 0;
-	tri.ray_angle = angle;
-	ntan = -1 * tan(tri.ray_angle);
-	tri.start_ray.x = data->player.x;
-	tri.start_ray.y = data->player.y;
+	nt = -1 * tan(tri.ray_angle);
 	if (tri.ray_angle > M_PI / 2 && tri.ray_angle < 3 * M_PI / 2)
 	{
 		tri.end_ray.x = (((int)data->player.x >> 6) << 6) - 0.0001;
-		tri.end_ray.y = (data->player.x - tri.end_ray.x) * ntan + data->player.y;
-		dx = -64;
-		dy = -dx * ntan;
+		tri.end_ray.y = (data->player.x - tri.end_ray.x) * nt + data->player.y;
+		*dx = -64;
+		*dy = *dx * -nt;
 	}
 	else if (tri.ray_angle < M_PI / 2 || tri.ray_angle > 3 * M_PI / 2)
 	{
 		tri.end_ray.x = (((int)data->player.x >> 6) << 6) + 64;
-		tri.end_ray.y = (data->player.x - tri.end_ray.x) * ntan + data->player.y;		
-		dx =  64;
-		dy = -dx * ntan;
+		tri.end_ray.y = (data->player.x - tri.end_ray.x) * nt + data->player.y;
+		*dx = 64;
+		*dy = *dx * -nt;
 	}
 	else
 	{
-		stop = 1;
+		tri.stop = 1;
 		tri.end_ray.x = data->player.x;
 		tri.end_ray.y = data->player.y;
 	}
-	if (!stop)
+	return (tri);
+}
+
+t_trigo	vertical_check(t_data *data, double angle)
+{
+	t_trigo	tri;
+	double	dx;
+	double	dy;
+
+	tri.stop = 0;
+	dx = 0;
+	dy = 0;
+	tri.ray_angle = angle;
+	tri.start_ray.x = data->player.x;
+	tri.start_ray.y = data->player.y;
+	tri = init_ray_vert(&dx, &dy, data, tri);
+	if (!tri.stop)
 	{
 		while (!(is_wall(tri.end_ray, *data->map)))
 		{
@@ -74,42 +80,48 @@ t_trigo	vertical_check(t_data *data, double angle)
 	return (tri);
 }
 
-t_trigo	horizontal_check(t_data *data, double angle)
+static t_trigo	init_ray_hori(double *dx, double *dy, t_data *data, t_trigo tri)
 {
-	int		stop;
-	t_trigo	tri;
-	double	intan;
-	double	dx;
-	double	dy;
+	double	it;
 
-	stop = 0;
-	dx = 0;
-	dy = 0;
-	tri.ray_angle = angle;
-	intan = -1 / tan(tri.ray_angle);
-	tri.start_ray.x = data->player.x;
-	tri.start_ray.y = data->player.y;
+	it = -1 / tan(tri.ray_angle);
 	if (tri.ray_angle > M_PI)
 	{
 		tri.end_ray.y = (((int)data->player.y >> 6) << 6) - 0.0001;
-		tri.end_ray.x = (data->player.y - tri.end_ray.y) * intan + data->player.x;
-		dy = -64;
-		dx = -dy * intan;
+		tri.end_ray.x = (data->player.y - tri.end_ray.y) * it + data->player.x;
+		*dy = -64;
+		*dx = *dy * -it;
 	}
 	else if (tri.ray_angle < M_PI && tri.ray_angle != 0)
 	{
 		tri.end_ray.y = (((int)data->player.y >> 6) << 6) + 64;
-		tri.end_ray.x = (data->player.y - tri.end_ray.y) * intan + data->player.x;
-		dy = 64;
-		dx = -dy * intan;
+		tri.end_ray.x = (data->player.y - tri.end_ray.y) * it + data->player.x;
+		*dy = 64;
+		*dx = *dy * -it;
 	}
 	else
 	{
-		stop = 1;
+		tri.stop = 1;
 		tri.end_ray.x = data->player.x;
 		tri.end_ray.y = data->player.y;
 	}
-	if (!stop)
+	return (tri);
+}
+
+t_trigo	horizontal_check(t_data *data, double angle)
+{
+	t_trigo	tri;
+	double	dx;
+	double	dy;
+
+	tri.stop = 0;
+	dx = 0;
+	dy = 0;
+	tri.ray_angle = angle;
+	tri.start_ray.x = data->player.x;
+	tri.start_ray.y = data->player.y;
+	tri = init_ray_hori(&dx, &dy, data, tri);
+	if (!tri.stop)
 	{
 		while (!(is_wall(tri.end_ray, *data->map)))
 		{

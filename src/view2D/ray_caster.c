@@ -6,43 +6,44 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:17:51 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 01:20:46 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 02:39:27 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-void	set_pos_looked(t_data *data, t_trigo tri, int is_hori)
+static void	top_dial(t_data *data, t_trigo tri, int is_hori)
 {
-
-	if (tri.ray_angle < M_PI / 2)
-	{
-		if (is_hori)
-			data->textures.dir_looked = SO;
-		else
-			data->textures.dir_looked = EA;
-	}
-	else if (tri.ray_angle < M_PI)
-	{
-		if (is_hori)
-			data->textures.dir_looked = SO;
-		else
-			data->textures.dir_looked = WE;
-	}
-	else if (tri.ray_angle < 3 * M_PI / 2)
-	{
-		if (is_hori)
-			data->textures.dir_looked = NO;
-		else
-			data->textures.dir_looked = WE;
-	}
+	if (is_hori)
+		data->textures.dir_looked = SO;
 	else
 	{
-		if (is_hori)
-			data->textures.dir_looked = NO;
+		if (tri.ray_angle < M_PI / 2)
+			data->textures.dir_looked = EA;
+		else
+			data->textures.dir_looked = WE;
+	}
+}
+
+static void	bot_dial(t_data *data, t_trigo tri, int is_hori)
+{
+	if (is_hori)
+		data->textures.dir_looked = NO;
+	else
+	{
+		if (tri.ray_angle < 3 * M_PI / 2)
+			data->textures.dir_looked = WE;
 		else
 			data->textures.dir_looked = EA;
 	}
+}
+
+void	set_pos_looked(t_data *data, t_trigo tri, int is_hori)
+{
+	if (tri.ray_angle < M_PI)
+		top_dial(data, tri, is_hori);
+	else
+		bot_dial(data, tri, is_hori);
 }
 
 double	trace_ray(t_data *data, double angle)
@@ -64,38 +65,36 @@ double	trace_ray(t_data *data, double angle)
 	{
 		set_pos_looked(data, hori, 1);
 		data->textures.x_wall_hit = hori.end_ray.x;
-		return(dist_h);
+		return (dist_h);
 	}
 	else
 	{
 		set_pos_looked(data, vert, 0);
 		data->textures.x_wall_hit = vert.end_ray.y;
-		return(dist_v);
+		return (dist_v);
 	}
 }
 
 void	trace_rays(t_data *data)
 {
-	double	angle_start;
-	double	angle_end;
-	double	step;
+	t_rays	rays;
 	double	angle_fish;
-	double	len_ray;
 	int		n_pix_col;
 	int		ind_col;
 
 	n_pix_col = round(WIDTH / NUM_RAYS);
-	angle_start = data->player.front - M_PI / 6;
-	angle_end = data->player.front + M_PI / 6;
-	step = (angle_end - angle_start) / NUM_RAYS;
+	rays.angle_start = data->player.front - M_PI / 6;
+	rays.angle_end = data->player.front + M_PI / 6;
+	rays.step = (rays.angle_end - rays.angle_start) / NUM_RAYS;
 	ind_col = 0;
-	while (angle_start < angle_end)
+	while (rays.angle_start < rays.angle_end)
 	{
-		len_ray = trace_ray(data, abs_angle(angle_start));
-		angle_fish = abs_angle(angle_start - data->player.front);
-		len_ray *= cos(angle_fish);
-		trace_pix_column(data, len_ray, n_pix_col, round(ind_col * n_pix_col));
-		angle_start += step;
+		rays.len_ray = trace_ray(data, abs_angle(rays.angle_start));
+		angle_fish = abs_angle(rays.angle_start - data->player.front);
+		rays.len_ray *= cos(angle_fish);
+		trace_pix_column(data, rays.len_ray, \
+			n_pix_col, round(ind_col * n_pix_col));
+		rays.angle_start += rays.step;
 		ind_col++;
 	}
 }

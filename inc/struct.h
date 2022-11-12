@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/07 22:44:51 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 02:54:23 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,12 @@ typedef struct s_trigo {
 	double		ray_len;
 	t_point_f	start_ray;
 	t_point_f	end_ray;
+	int			stop;
 } 			t_trigo;
+
+typedef struct s_rays {
+	double	angle_start;
+	double	angle_end;
+	double	step;
+	double	len_ray;
+}			t_rays;
