@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   affiche_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 22:23:32 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 20:14:02 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:21:31 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,6 @@ void	map_2d(t_data *data)
 		}
 		x = 0;
 		y++;
-	}
-}
-
-void	black_out(t_data *data)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x < WIDTH)
-	{
-		y = 0;
-		while (y < HEIGHT)
-		{
-			my_mlx_pixel_put(data, x, y, BLACK);
-			y++;
-		}
-		x++;
 	}
 }
 

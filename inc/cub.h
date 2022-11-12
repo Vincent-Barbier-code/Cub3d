@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 01:53:38 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:06:14 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define GAP_MAP 40
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
-# define NUM_RAYS 100
+# define NUM_RAYS 200
 # define SIZE_PIXEL 64
 # define COLOR_PLAYER 0xA30B37
 # define BLACK 0x000000
@@ -79,6 +79,7 @@ void	name_file(int ac, char *av);
 void	init_file(t_data *data, char *nom);
 void	name_error(int cas);
 void	affiche_file(t_data *data);
+void	fd_close_error(int fd);
 
 //clean_map.c
 void	clean_map(t_data *data);
@@ -171,6 +172,7 @@ t_trigo	horizontal_check(t_data *data, double angle);
 //utils_rc.c
 double	abs_angle(double angle);
 double	distance(t_point_f a, t_point_f b);
+void	black_out(t_data *data);
 
 //3D
 //draw_walls.c
@@ -180,4 +182,6 @@ void	load_imgs(t_data *data);
 void	destroy_imgs(t_data *data);
 //draw_textures.c
 t_img	get_correct_texture(t_data *data);
+void	texture_to_sreen(t_3d col_3d, t_data *data, t_img asset);
+
 #endif

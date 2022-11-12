@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:16:24 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 02:54:23 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 18:39:32 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,3 +114,16 @@ typedef struct s_rays {
 	double	step;
 	double	len_ray;
 }			t_rays;
+
+typedef struct s_3d {
+	double		col_h;
+	double		col_offset;
+	int			pix_x;
+	int			pix_y;
+	int			tex_x;
+	int			tex_y;
+	float		tex_y_step;
+	double		tex_pos;
+	int			n_pix_col;
+	int			ind_col;
+}			t_3d;

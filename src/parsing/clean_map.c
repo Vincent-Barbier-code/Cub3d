@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:48:09 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 18:48:45 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 19:52:33 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,14 @@ void	ft_new_map(t_data *data, int y, int x)
 	if (data->map->carte[y][x + 1] == '\n')
 		return ;
 	str = ft_substr(data->map->carte[y], x + 1, len);
+	if (!str)
+		malloc_error();
 	data->map->carte[y] = ft_substr(data->map->carte[y], 0, x);
+	if (!data->map->carte[y])
+		malloc_error();
 	data->map->carte[y] = ft_strjoin_2free(data->map->carte[y], str);
+	if (!data->map->carte[y])
+		malloc_error();
 }
 
 void	x_max_map(t_data *data)
@@ -48,8 +54,15 @@ void	x_max_map(t_data *data)
 
 void	add_space(t_data *data, int y, int x)
 {
+	char	*nl;
+
+	nl = ft_strdup("\n");
+	if (!nl)
+		malloc_error();
 	data->map->carte[y][x] = ' ';
-	data->map->carte[y] = ft_strjoin_2free(data->map->carte[y], ft_strdup("\n"));
+	data->map->carte[y] = ft_strjoin_2free(data->map->carte[y], nl);
+	if (!data->map->carte[y])
+		malloc_error();
 }
 
 void	clean_map(t_data *data)

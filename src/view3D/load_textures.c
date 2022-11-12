@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:21:52 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 01:52:57 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 18:10:49 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ static void	error_destroy_imgs(t_data *data, int cmp)
 		mlx_destroy_image(data->mlx, data->textures.asset_EA.pointer);
 }
 
-void    error_img(t_data *data, int cmp)
+void	error_img(t_data *data, int cmp)
 {
-    error_destroy_imgs(data, cmp);
+	error_destroy_imgs(data, cmp);
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_clear_window(data->mlx, data->mlx_win);
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	ft_garbage_collector(END, NULL);
-    exit(1);
+	exit(1);
 }
 
 static t_img	load_img(t_data *data, char *path)

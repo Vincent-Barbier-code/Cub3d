@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:12:44 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 00:27:01 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:00:53 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ static char	*malloc_path(char *path, char *struct_path)
 		textures_errors(ERR_NUM_PATH);
 	malloced_path = ft_strdup(path);
 	if (!malloced_path)
-	{
-		ft_garbage_collector(END, NULL);
-		exit (1);
-	}
+		malloc_error();
 	return (malloced_path);
 }
 
@@ -53,7 +50,7 @@ void	get_texture_path(char *path, t_data *data, char *element)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		textures_errors(ERR_WRONG_FILE);
-	close(fd);
+	fd_close_error(close(fd));
 	if (!ft_strncmp(element, "NO", 2))
 		data->textures.path_NO = malloc_path(path, data->textures.path_NO);
 	if (!ft_strncmp(element, "SO", 2))
@@ -72,13 +69,9 @@ char	*check_default_path(char *path)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		textures_errors(ERR_WRONG_FILE);
-	close(fd);
+	fd_close_error(close(fd));
 	malloced_path = ft_strdup(path);
-	if (!malloced_path)
-	{
-		ft_garbage_collector(END, NULL);
-		exit(1);
-	}
+		malloc_error();
 	return (malloced_path);
 }
 

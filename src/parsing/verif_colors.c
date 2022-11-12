@@ -6,11 +6,22 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:06:11 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 00:56:42 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 19:46:21 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
+
+static int	loop_on_num(int *j, char *RGB)
+{
+	int	save_j;
+	
+	save_j = *j;
+	while (ft_isdigit(RGB[*j]))
+		*j += 1;
+	if (save_j == *j)
+		color_errors(ERR_COLOR);
+}
 
 static void	check_colors(char *RGB)
 {
@@ -22,8 +33,7 @@ static void	check_colors(char *RGB)
 	while (i < 3)
 	{
 		skip_spaces(&j, RGB);
-		while (ft_isdigit(RGB[j]))
-			j++;
+		loop_on_num(&j, RGB);
 		skip_spaces(&j, RGB);
 		if (i == 2)
 		{

@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 01:12:54 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/12 01:13:41 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 18:21:36 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,22 @@ double	abs_angle(double angle)
 double	distance(t_point_f a, t_point_f b)
 {
 	return (sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y)));
+}
+
+void	black_out(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < WIDTH)
+	{
+		y = 0;
+		while (y < HEIGHT)
+		{
+			my_mlx_pixel_put(data, x, y, BLACK);
+			y++;
+		}
+		x++;
+	}
 }
