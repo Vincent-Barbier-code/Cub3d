@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:05:35 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 19:25:05 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 21:33:35 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,19 @@ void	affiche_carte(t_map *map)
 		printf("%s", map->carte[i++]);
 }
 
-int	y_max_map(t_map *map)
+int	y_max_map(t_data *data)
 {
 	int i;
+	int x;
 
+	x = 0;
 	i = 0;
-	while (map->carte[i])
+	while (data->map->carte[i])
 		i++;
+	while (data->map->carte[i - 1][x])
+		x++;
+	if (data->map->carte[i - 1][x - 1] != '\n')
+		data->map->carte[i - 1][x - 1] = '\n';
 	return (i);
 }
 
@@ -57,11 +63,10 @@ void	parsing(int ac, char *name, t_data *data)
 	get_textures(data);
 	set_default_textures(data);
 	set_default_colors(data);
-	// verif color
 	data->map->carte = data->file;
-	data->map->y_max = y_max_map(data->map);
-	// affiche_carte(data->map);
-	// affiche_file(data);
+	data->map->y_max = y_max_map(data);
+	printf(" LA= %d \n", data->map->y_max);
+	affiche_carte(data->map);
 	clean_map(data);
 	verif_wall(data);
 	verif_char(data);

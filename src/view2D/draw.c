@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:59:04 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 18:51:12 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:21:46 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	draw_map_2d(t_data *data, int x, int y, int color)
 		while (draw.x < draw.cp_x + draw.size)
 		{
 			data->draw = draw;
-			if (can_draw(data, formule(data, draw, 'x'), formule(data, draw, 'y')))
+			if (can_draw(data, formule(data, draw, 'x'), \
+			formule(data, draw, 'y')))
 				my_mlx_pixel_put(data, formule(data, draw, 'x'), \
 				formule(data, draw, 'y'), color);
 			draw.x++;

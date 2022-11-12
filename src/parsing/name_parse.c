@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 02:20:22 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/12 19:08:12 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 20:45:32 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,21 @@ void	name_error(int cas)
 	exit(EXIT_FAILURE);
 }
 
+void	not_just_cub(char *av, char *ber)
+{
+	av--;
+	if (*av == '/')
+		name_error(0);
+	av++;
+	while (*av)
+	{
+		if (*av != *ber)
+			name_error(1);
+		av++;
+		ber++;
+	}
+}
+
 void	name_file(int ac, char *av)
 {
 	char	*ber;
@@ -48,13 +63,7 @@ void	name_file(int ac, char *av)
 			len--;
 			av++;
 		}
-		while (*av)
-		{
-			if (*av != *ber)
-				name_error(1);
-			av++;
-			ber++;
-		}
+		not_just_cub(av, ber);
 	}
 	else
 		name_error(2);

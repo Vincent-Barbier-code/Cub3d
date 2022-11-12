@@ -6,59 +6,26 @@
 /*   By: vbarbier <vbarbier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 00:20:37 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/01 18:58:39 by vbarbier         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:46:41 by vbarbier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-void    move_cam(t_data *data, int key)
+void	move_cam(t_data *data, int key)
 {
-    if (key == CAM_LEFT)
-    {
-	    data->player.front -= 0.05;
+	if (key == CAM_LEFT)
+	{
+		data->player.front -= 0.05;
 		if (data->player.front < 0)
-        	data->player.front += M_PI * 2;
+			data->player.front += M_PI * 2;
 	}
 	if (key == CAM_RIGHT)
-    {
-	    data->player.front += 0.05;
+	{
+		data->player.front += 0.05;
 		if (data->player.front > 2 * M_PI)
 			data->player.front -= M_PI * 2;
 	}
-}
-
-
-void	move_player(t_data *data, int key)
-{
-	if (key == TOP )
-		if (can_move(data, data->player.x + cos(data->player.front), 'x') && \
-			can_move(data, data->player.y + sin(data->player.front), 'y'))
-		{
-			data->player.x += cos(data->player.front);
-			data->player.y += sin(data->player.front);
-		}
-	if (key == BOT)
-		if (can_move(data, data->player.x - cos(data->player.front), 'x') && \
-			can_move(data, data->player.y - sin(data->player.front), 'y'))
-		{
-			data->player.x -= cos(data->player.front);
-			data->player.y -= sin(data->player.front);
-		}
-	if (key == LEFT)
-		if (can_move(data, data->player.x - cos(data->player.front + M_PI / 2), 'x') && \
-			can_move(data, data->player.y - sin(data->player.front + M_PI / 2), 'y'))
-		{
-			data->player.x -= cos(data->player.front + M_PI / 2);
-			data->player.y -= sin(data->player.front + M_PI / 2);
-		}
-	if (key == RIGHT)
-		if (can_move(data, data->player.x - cos(data->player.front - M_PI / 2), 'x') && \
-			can_move(data, data->player.y - sin(data->player.front - M_PI / 2), 'y'))
-		{
-			data->player.x -= cos(data->player.front - M_PI / 2);
-			data->player.y -= sin(data->player.front - M_PI / 2);
-		}
 }
 
 double	get_player_pos(t_map *map, char c)
@@ -86,8 +53,9 @@ double	get_player_pos(t_map *map, char c)
 
 void	init_player(t_data *data)
 {
-	data->player.color = COLOR_PLAYER; // green
-	data->player.x = get_player_pos(data->map, 'x') * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2;
-	data->player.y = get_player_pos(data->map, 'y') * SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2;
+	data->player.color = COLOR_PLAYER;
+	data->player.x = get_player_pos(data->map, 'x') \
+	* SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2;
+	data->player.y = get_player_pos(data->map, 'y') \
+	* SIZE_PIXEL + SIZE_PIXEL / 2 - SIZE_PLAYER / 2;
 }
-
