@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:15:02 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/08 19:21:54 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 00:40:53 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,14 @@ void	set_default_colors(t_data *data)
 	{
 		color_ceiling = ft_malloc(sizeof(int) * 3);
 		if (!color_ceiling)
-		{
-			ft_garbage_collector(END, NULL);
-			exit(1);
-		}
+			malloc_error();
 		set_default_color_ceiling(data, color_ceiling);
 	}
 	if (!data->textures.floor)
 	{
 		color_floor = ft_malloc(sizeof(int) * 3);
 		if (!color_floor)
-		{
-			ft_garbage_collector(END, NULL);
-			exit(1);
-		}
+			malloc_error();
 		set_default_color_floor(data, color_floor);
 	}
 }

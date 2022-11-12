@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:12:44 by mvue              #+#    #+#             */
-/*   Updated: 2022/11/08 18:50:06 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 00:27:01 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,19 @@ void	init_textures(t_data *data)
 	data->textures.path_WE = NULL;
 }
 
-char	*set_element(int *letter, int line, char **file)
+static char	*malloc_path(char *path, char *struct_path)
 {
-	int		i;
+	char	*malloced_path;
 
-	i = 0;
-	while (file[line][*letter + i] != ' ')
-		i++;
-	if (i == 1)
+	if (struct_path)
+		textures_errors(ERR_NUM_PATH);
+	malloced_path = ft_strdup(path);
+	if (!malloced_path)
 	{
-		if (!ft_strncmp(&file[line][*letter], "F", 1))
-			return ("F");
-		if (!ft_strncmp(&file[line][*letter], "C", 1))
-			return ("C");
+		ft_garbage_collector(END, NULL);
+		exit (1);
 	}
-	if (i == 2)
-	{
-		if (!ft_strncmp(&file[line][*letter], "NO", 2))
-			return ("NO");
-		if (!ft_strncmp(&file[line][*letter], "SO", 2))
-			return ("SO");	
-		if (!ft_strncmp(&file[line][*letter], "WE", 2))
-			return ("WE");
-		if (!ft_strncmp(&file[line][*letter], "EA", 2))
-			return ("EA");
-	}
-	return (NULL);
+	return (malloced_path);
 }
 
 void	get_texture_path(char *path, t_data *data, char *element)
@@ -68,70 +55,45 @@ void	get_texture_path(char *path, t_data *data, char *element)
 		textures_errors(ERR_WRONG_FILE);
 	close(fd);
 	if (!ft_strncmp(element, "NO", 2))
-	{
-		if (data->textures.path_NO)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_NO = ft_strdup(path);
-	}
+		data->textures.path_NO = malloc_path(path, data->textures.path_NO);
 	if (!ft_strncmp(element, "SO", 2))
-	{
-		if (data->textures.path_SO)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_SO = ft_strdup(path);
-	}
+		data->textures.path_SO = malloc_path(path, data->textures.path_SO);
 	if (!ft_strncmp(element, "WE", 2))
-	{
-		if (data->textures.path_WE)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_WE = ft_strdup(path);
-	}
+		data->textures.path_WE = malloc_path(path, data->textures.path_WE);
 	if (!ft_strncmp(element, "EA", 2))
+		data->textures.path_EA = malloc_path(path, data->textures.path_EA);
+}
+
+char	*check_default_path(char *path)
+{
+	char	*malloced_path;
+	int		fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		textures_errors(ERR_WRONG_FILE);
+	close(fd);
+	malloced_path = ft_strdup(path);
+	if (!malloced_path)
 	{
-		if (data->textures.path_EA)
-			textures_errors(ERR_NUM_PATH);
-		data->textures.path_EA = ft_strdup(path);
+		ft_garbage_collector(END, NULL);
+		exit(1);
 	}
+	return (malloced_path);
 }
 
 void	set_default_textures(t_data *data)
 {
-	char	*path;
-	int		fd;
-	
 	if (!data->textures.path_EA)
-	{
-		path = "./textures/EA.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_EA = path;
-	}
+		data->textures.path_EA \
+			= check_default_path("./textures/EA.xpm");
 	if (!data->textures.path_NO)
-	{
-		path = "./textures/NO.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_NO = path;
-	}
+		data->textures.path_NO \
+			= check_default_path("./textures/NO.xpm");
 	if (!data->textures.path_SO)
-	{
-		path = "./textures/SO.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_SO = path;
-	}
+		data->textures.path_SO \
+			= check_default_path("./textures/SO.xpm");
 	if (!data->textures.path_WE)
-	{
-		path = "./textures/WE.xpm";
-		fd = open(path, O_RDONLY);
-		if (fd == -1)
-			textures_errors(ERR_WRONG_FILE);
-		close(fd);
-		data->textures.path_WE = path;
-	}
+		data->textures.path_WE \
+			= check_default_path("./textures/WE.xpm");
 }

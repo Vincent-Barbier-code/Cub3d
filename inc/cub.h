@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:07:30 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 19:15:39 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 01:53:38 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define GAP_MAP 40
 	// PLAYER_FORM 0 = CARRE 1 = TRIANGLE
 # define PLAYER_FORM 0
-# define NUM_RAYS 200
+# define NUM_RAYS 100
 # define SIZE_PIXEL 64
 # define COLOR_PLAYER 0xA30B37
 # define BLACK 0x000000
@@ -97,8 +97,12 @@ int		verif_left(t_map *map, int y, int x, int (*f)(char));
 //verif_textures
 void	init_textures(t_data *data);
 void	get_textures(t_data *data);
-void	textures_errors(int err_num);
 void	skip_spaces(int *letter, char *str);
+
+//texture_errors.c
+void	color_errors(int err_num);
+void	textures_errors(int err_num);
+void	malloc_error(void);
 
 //init_textures.c
 void	init_textures(t_data *data);
@@ -110,7 +114,7 @@ void	set_default_textures(t_data *data);
 void	set_default_colors(t_data *data);
 
 //verif_colors.c
-void	get_colors_FC(char *RGB, t_data *data, char *element);
+void	get_colors_fc(char *RGB, t_data *data, char *element);
 
 //verif_char.c
 double	is_player(char c);
@@ -159,6 +163,14 @@ void	trace_tilted(t_data *data);
 
 //ray_caster.c
 void	trace_rays(t_data *data);
+
+//grid_checks.c
+t_trigo	vertical_check(t_data *data, double angle);
+t_trigo	horizontal_check(t_data *data, double angle);
+
+//utils_rc.c
+double	abs_angle(double angle);
+double	distance(t_point_f a, t_point_f b);
 
 //3D
 //draw_walls.c

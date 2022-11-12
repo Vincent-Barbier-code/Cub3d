@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:23:56 by vbarbier          #+#    #+#             */
-/*   Updated: 2022/11/08 23:11:47 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 01:03:29 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,40 +27,3 @@ int	can_move(t_data *data, int pos, char c)
 		return (0);
 	return (1);
 }
-
-// void	move_player(t_data *data, int key)
-// {
-// 	if (key == TOP)
-// 		if (can_move(data, data->player.y - 1, 'y'))
-// 			data->player.y = data->player.y - 1;
-// 	if (key == BOT)
-// 		if (can_move(data, data->player.y + 1, 'y'))
-// 			data->player.y = data->player.y + 1;
-// 	if (key == LEFT)
-// 		if (can_move(data, data->player.x - 1, 'x'))
-// 			data->player.x = data->player.x - 1;
-// 	if (key == RIGHT)
-// 		if (can_move(data, data->player.x + 1, 'x'))
-// 			data->player.x = data->player.x  + 1;
-// }
-
-// void	draw_player_c(t_data *data)
-// {
-// 	int	x;
-// 	int	y;
-// 	int size;
-
-// 	size = SIZE_PLAYER;
-// 	x = data.POS_PX;
-// 	y = data.POS_PY;
-// 	while (y < data.POS_PY + size && POS_PY + size < HEIGHT)
-// 	{
-// 		while (x < POS_PX + size && POS_PX + size < WIDTH)
-// 		{
-// 			my_mlx_pixel_put(data, x, y, data->player.color);
-// 			x++;
-// 		}
-// 		y++;
-// 		x = POS_PX;
-// 	}
-// }

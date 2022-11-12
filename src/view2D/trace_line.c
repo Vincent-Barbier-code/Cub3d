@@ -6,7 +6,7 @@
 /*   By: mvue <mvue@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:01:33 by mvue              #+#    #+#             */
-/*   Updated: 2022/10/12 20:30:03 by mvue             ###   ########.fr       */
+/*   Updated: 2022/11/12 01:04:12 by mvue             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	fith_octal(t_line l, int dx, int dy)
 {
 	int	e;
-	
+
 	e = dx;
 	dx = e * 2;
 	dy *= 2;
@@ -35,7 +35,7 @@ static void	fith_octal(t_line l, int dx, int dy)
 static void	third_dial(t_line l, int dx, int dy)
 {
 	int	e;
-	
+
 	if (dx <= dy)
 		fith_octal(l, dx, dy);
 	else
@@ -61,7 +61,7 @@ static void	third_dial(t_line l, int dx, int dy)
 static void	eigth_octal(t_line l, int dx, int dy)
 {
 	int	e;
-	
+
 	e = dx;
 	dx = e * 2;
 	dy *= 2;
@@ -81,7 +81,7 @@ static void	eigth_octal(t_line l, int dx, int dy)
 static void	fourth_dial(t_line l, int dx, int dy)
 {
 	int	e;
-	
+
 	if (dx >= -dy)
 		eigth_octal(l, dx, dy);
 	else
@@ -106,8 +106,8 @@ static void	fourth_dial(t_line l, int dx, int dy)
 
 void	trace_line(t_line l)
 {
-	int dx;
-	int dy;
+	int	dx;
+	int	dy;
 
 	dx = l.b.x - l.a.x;
 	dy = l.b.y - l.a.y;
